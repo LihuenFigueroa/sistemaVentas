@@ -250,6 +250,19 @@
     <Content Include="Resources\1button.png" />
     <Content Include="Resources\1button_click.png" />
     <Content Include="Resources\1button_hover.png" />
+    <None Include="Resources\Logomas58.jpg" />
+    <None Include="Resources\banner.png" />
+    <None Include="Resources\banner1.png" />
+    <None Include="Resources\backGroundPpal.png" />
+    <None Include="Resources\banner2.png" />
+    <None Include="Resources\backGroundMesas.png" />
+    <Content Include="Resources\Logomas58.png" />
+    <None Include="Resources\mesa_libre2.png" />
+    <None Include="Resources\mesa_ocupada.png" />
+    <None Include="Resources\mesa_espera_cuenta.png" />
+    <None Include="Resources\logoPpal.png" />
+    <Content Include="Resources\mesa_libre.png" />
+    <None Include="Resources\mesa_libre1.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

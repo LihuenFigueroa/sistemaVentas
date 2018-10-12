@@ -77,5 +77,10 @@ namespace Capa_de_Presentacion
         {
             Application.Exit();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

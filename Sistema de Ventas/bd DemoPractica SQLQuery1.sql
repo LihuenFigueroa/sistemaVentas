@@ -487,6 +487,7 @@ Go
 Create Proc RegistrarVenta
 @IdEmpleado Int,
 @IdCliente Int,
+@IdMesa Int,
 @Serie Char(5),
 @NroDocumento Char(7),
 @TipoDocumento Varchar(7),
@@ -494,7 +495,7 @@ Create Proc RegistrarVenta
 @Total Money,
 @Mensaje Varchar(100) Out
 As Begin
-	Insert Venta Values(@IdEmpleado,@IdCliente,@Serie,@NroDocumento,@TipoDocumento,@FechaVenta,@Total)
+	Insert Venta Values(@IdEmpleado,@IdCliente,@IdMesa,@Serie,@NroDocumento,@TipoDocumento,@FechaVenta,@Total)
 		Set @Mensaje='La Venta se ha Generado Correctamente.'
 	End
 Go
