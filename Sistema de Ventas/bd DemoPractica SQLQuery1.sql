@@ -1,13 +1,15 @@
 Use Master
 Go
+--CREO LA BASE DE DATOS--
 If(db_id('DemoPractica')Is Not Null)
 Drop DataBase DemoPractica
 Create DataBase DemoPractica
 Go
-
+-- INDICO QUE LA VOY A USAR --
 Use DemoPractica
 Go
-
+-------------------------------------
+-- CREO LAS TABLAS --
 Create Table Categoria
 (IdCategoria Int Identity Primary Key,
 Descripcion Varchar(50) Not Null
@@ -35,9 +37,6 @@ Direccion Varchar(100) Not Null,
 Telefono Varchar(12)
 )
 go
-
-Insert Cliente Values('47660746','Vásquez Ventura','Juan','Urb. Santa Rosa','996687349')
-Go
 
 Create Table Cargo
 (IdCargo Int Identity Primary Key,
@@ -81,12 +80,15 @@ SubTotal Money Not Null
 )
 Go
 
-
-Insert Categoria Values('Bebidas'),('Carnes'),('Verduras')
+Create Table Usuario
+(IdUsuario Int Identity Primary Key,
+IdEmpleado Int Not Null References Empleado,
+Usuario Varchar(20) Not Null,
+Contraseña Varchar(12) Not Null
+)
 Go
-
-
---PROCEDIMIENTOS ALMACENADOS EN SQL SERVER 2012
+----------------------------------------
+-- PROCEDIMIENTOS ALMACENADOS --
 
 Create Proc ListarClientes
 As Begin
@@ -146,7 +148,7 @@ As Begin
 	From Producto where Nombre=@Datos or Marca=@Datos or Nombre+' '+Marca=@Datos
 End
 Go
---FiltrarDatosProducto 'G'
+
 Create Proc ListadoProductos
 As Begin
 	Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,PrecioVenta,Stock,FechaVencimiento 
@@ -158,9 +160,6 @@ Create Proc ListarCategoria
 As Begin
 	Select * From Categoria
 End
-Go
-
-Insert Producto Values(1,'Gaseosa','Pepsi',5,4.90,5.90,'12/12/2013')
 Go
 
 Create proc RegistrarCategoria
@@ -238,7 +237,6 @@ As Begin
 End
 Go
 
-
 Create Proc ListarCargo
 As Begin
 	Select * From Cargo
@@ -276,7 +274,6 @@ As Begin
 	End
 Go
 
-
 Create Proc BuscarCargo
 @Descripcion varchar(30)
 as begin
@@ -291,7 +288,7 @@ Set @Serie='00001'
 end
 go
 
-Create Procedure [Numero Correlativo]
+Create Proc [Numero Correlativo]
 @TipoDocumento Varchar(7),
 @NroCorrelativo Char(7)Out
 As Begin
@@ -347,14 +344,6 @@ As Begin
 	End
 Go
  
-Create Table Usuario
-(IdUsuario Int Identity Primary Key,
-IdEmpleado Int Not Null References Empleado,
-Usuario Varchar(20) Not Null,
-Contraseña Varchar(12) Not Null
-)
-Go
-
 Create Proc RegistrarUsuario
 @IdEmpleado Int,
 @Usuario Varchar(20),
@@ -510,13 +499,21 @@ As Begin
 		Update Producto Set Stock=@Stock-@Cantidad Where IdProducto=@IdProducto
 End
 Go
-
+--------------------------------------
+-- INSERCIONES INICIALES --
 Insert Cargo Values('Administrador')
 Go
 Insert Empleado Values(1,'34004387','Silva Terrones','Miguel','M','11/01/1990','Urb. Santa Rosa','S')
 Go
 Insert Usuario Values(1,'Miguelito','123456')
 Go
+Insert Cliente Values('47660746','Vásquez Ventura','Juan','Urb. Santa Rosa','996687349')
+Go
+Insert Categoria Values('Bebidas'),('Carnes'),('Verduras')
+Go
+Insert Producto Values(1,'Gaseosa','Pepsi',5,4.90,5.90,'12/12/2013')
+Go
+---------------------------------------
 
 Select * From Usuario
 select * from Empleado
