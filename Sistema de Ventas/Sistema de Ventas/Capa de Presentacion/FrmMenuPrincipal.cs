@@ -82,5 +82,12 @@ namespace Capa_de_Presentacion
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmOcuparMesa om = new FrmOcuparMesa();
+            om.Show();
+            this.button1.Image = global::Capa_de_Presentacion.Properties.Resources.mesa_ocupada;
+        }
     }
 }

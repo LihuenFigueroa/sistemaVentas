@@ -300,6 +300,7 @@
             this.button1.TabIndex = 26;
             this.button1.Text = "1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -494,7 +495,7 @@
             this.Maracaibo.Location = new System.Drawing.Point(4, 22);
             this.Maracaibo.Name = "Maracaibo";
             this.Maracaibo.Padding = new System.Windows.Forms.Padding(3);
-            this.Maracaibo.Size = new System.Drawing.Size(943, 481);
+            this.Maracaibo.Size = new System.Drawing.Size(943, 422);
             this.Maracaibo.TabIndex = 1;
             this.Maracaibo.Text = "Maracaibo";
             this.Maracaibo.UseVisualStyleBackColor = true;

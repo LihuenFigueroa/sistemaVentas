@@ -95,6 +95,12 @@
     <Compile Include="FrmMenuPrincipal.Designer.cs">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmOcuparMesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOcuparMesa.Designer.cs">
+      <DependentUpon>FrmOcuparMesa.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRegistrarCargo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOcuparMesa.resx">
+      <DependentUpon>FrmOcuparMesa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistrarCargo.resx">
       <DependentUpon>FrmRegistrarCargo.cs</DependentUpon>
