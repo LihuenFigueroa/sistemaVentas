@@ -12,9 +12,26 @@ Go
 -- CREO LAS TABLAS --
 Create Table Categoria
 (IdCategoria Int Identity Primary Key,
-Descripcion Varchar(50) Not Null
+Descripcion Varchar(50) Not Null)
+Go
+
+Create Table Sala
+(IdSala int Identity Primary Key,
+Nombre Varchar(20) NOT NULL 
 )
 Go
+
+Create Table Mesa
+(IdMesa int Identity Primary Key,
+IdSala int Not null References Sala,
+NumeroMesa int NOT null,
+CantComensales int not null,
+Libre bit not null,
+EsperaCuenta bit not null,
+Combinada bit
+)
+Go
+
 
 Create Table Producto
 (IdProducto Int Identity Primary Key,
@@ -61,6 +78,7 @@ Create Table Venta
 (IdVenta Int Identity Primary Key,
 IdEmpleado Int Not Null References Empleado,
 IdCliente Int Not Null References Cliente,
+IdMesa Int References Mesa,
 Serie Char(5) Not Null,
 NroDocumento Char(7) Not Null,
 TipoDocumento Varchar(7) Check(TipoDocumento In('Boleta','Factura')),
