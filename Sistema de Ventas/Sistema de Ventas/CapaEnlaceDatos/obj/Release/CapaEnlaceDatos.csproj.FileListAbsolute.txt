@@ -1,5 +1,0 @@
-C:\Users\Lihuen\Desktop\+58 Sistema\Sistema de Ventas C# y Sql by Start Tec\Sistema de Ventas\CapaEnlaceDatos\bin\Release\CapaEnlaceDatos.dll
-C:\Users\Lihuen\Desktop\+58 Sistema\Sistema de Ventas C# y Sql by Start Tec\Sistema de Ventas\CapaEnlaceDatos\bin\Release\CapaEnlaceDatos.pdb
-C:\Users\Lihuen\Desktop\+58 Sistema\Sistema de Ventas C# y Sql by Start Tec\Sistema de Ventas\CapaEnlaceDatos\obj\Release\CapaEnlaceDatos.csproj.CoreCompileInputs.cache
-C:\Users\Lihuen\Desktop\+58 Sistema\Sistema de Ventas C# y Sql by Start Tec\Sistema de Ventas\CapaEnlaceDatos\obj\Release\CapaEnlaceDatos.dll
-C:\Users\Lihuen\Desktop\+58 Sistema\Sistema de Ventas C# y Sql by Start Tec\Sistema de Ventas\CapaEnlaceDatos\obj\Release\CapaEnlaceDatos.pdb
