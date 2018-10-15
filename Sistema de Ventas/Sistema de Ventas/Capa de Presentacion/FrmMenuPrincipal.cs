@@ -89,5 +89,11 @@ namespace Capa_de_Presentacion
             om.Show();
             this.button1.Image = global::Capa_de_Presentacion.Properties.Resources.mesa_ocupada;
         }
+
+        private void button37_Click(object sender, EventArgs e)
+        {
+            FrmCrearSala S = new FrmCrearSala();
+            S.Show();
+        }
     }
 }

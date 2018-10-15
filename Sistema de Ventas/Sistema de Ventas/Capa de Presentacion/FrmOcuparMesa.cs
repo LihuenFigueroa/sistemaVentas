@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Capa_de_Presentacion
 {
-    public partial class FrmOcuparMesa : Form
+    public partial class FrmOcuparMesa : DevComponents.DotNetBar.Metro.MetroForm
     {
         public FrmOcuparMesa()
         {
@@ -40,5 +40,6 @@ namespace Capa_de_Presentacion
                 
         }
 
+        
     }
 }

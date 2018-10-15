@@ -32,8 +32,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
-            this.cantidadPersonas = new System.Windows.Forms.TextBox();
-            this.txtIdE = new System.Windows.Forms.TextBox();
+            this.cantidadPersonas = new System.Windows.Forms.TextBox();           
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -88,28 +87,20 @@
             this.cantidadPersonas.Size = new System.Drawing.Size(129, 21);
             this.cantidadPersonas.TabIndex = 1;
             this.cantidadPersonas.TextChanged += new System.EventHandler(this.cantidadPersonas_TextChanged);
-            this.cantidadPersonas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cantidadPersonas_KeyPress);
-            // 
-            // txtIdE
-            // 
-            this.txtIdE.Location = new System.Drawing.Point(605, 241);
-            this.txtIdE.Name = "txtIdE";
-            this.txtIdE.Size = new System.Drawing.Size(31, 20);
-            this.txtIdE.TabIndex = 2;
+            this.cantidadPersonas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cantidadPersonas_KeyPress);     
             // 
             // FrmOcuparMesa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(217, 133);
-            this.Controls.Add(this.txtIdE);
             this.Controls.Add(this.groupBox1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.Name = "FrmOcuparMesa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmRegistrarEmpleados";
+            this.Text = "Nueva Mesa";           
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -124,7 +115,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnGrabar;
         public System.Windows.Forms.TextBox cantidadPersonas;
-        public System.Windows.Forms.TextBox txtIdE;
         private System.Windows.Forms.Timer timer1;
     }
 }
