@@ -87,5 +87,11 @@ namespace Capa_de_Presentacion
                 Program.NombreEmpleadoLogueado = row[1].ToString();
             }
         }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)13)
+                this.btnIngresar_Click(sender, e);
+        }
     }
 }
