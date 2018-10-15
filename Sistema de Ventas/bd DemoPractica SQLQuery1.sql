@@ -234,7 +234,6 @@ End
 Go
 
 Create Proc RegistrarMesa
-@IdMesa int ,
 @IdSala int ,
 @NumeroMesa int ,
 @CantComensales int,
@@ -246,7 +245,7 @@ As Begin
 	If(Exists(Select * From Mesa Where IdMesa=@IdMesa))
 		Set @Mensaje='Imposible registrar esta mesa.'
 	Else Begin
-		Insert Producto Values(@IdMesa,@IdSala,@NumeroMesa,@CantComensales,@Libre,@EsperaCuenta,@Combinada)
+		Insert Mesa Values(@IdSala,@NumeroMesa,@CantComensales,@Libre,@EsperaCuenta,@Combinada)
 		Set @Mensaje='Mesa registrada correctamente.'
 	End
 End

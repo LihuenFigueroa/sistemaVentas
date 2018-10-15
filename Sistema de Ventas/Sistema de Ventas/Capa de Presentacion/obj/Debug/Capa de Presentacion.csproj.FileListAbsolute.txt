@@ -203,3 +203,4 @@ C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de V
 C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Debug\Capa de Presentacion.exe
 C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Debug\Capa de Presentacion.pdb
 C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Debug\Capa_de_Presentacion.FrmOcuparMesa.resources
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Debug\Capa_de_Presentacion.FrmCrearSala.resources

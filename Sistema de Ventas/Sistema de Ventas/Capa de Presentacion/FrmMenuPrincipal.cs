@@ -15,9 +15,19 @@ namespace Capa_de_Presentacion
     public partial class FrmMenuPrincipal : DevComponents.DotNetBar.Metro.MetroForm
     {
         int EnviarFecha = 0;
-        public FrmMenuPrincipal()
+        private static FrmMenuPrincipal _singleton;
+        private FrmMenuPrincipal()
         {
             InitializeComponent();
+        }
+
+        public static FrmMenuPrincipal CrearInstancia()
+        {
+            if (_singleton == null)
+            {
+                _singleton = new FrmMenuPrincipal();
+            }
+            return _singleton;
         }
 
         private void FrmMenuPrincipal_Activated(object sender, EventArgs e)
@@ -94,6 +104,12 @@ namespace Capa_de_Presentacion
         {
             FrmCrearSala S = new FrmCrearSala();
             S.Show();
+        }
+
+        public void AgregarSolapa(string nombre_solapa)
+        {
+            TabPage myTabPage = new TabPage(nombre_solapa);
+            this.tabControl1.TabPages.Add(myTabPage);
         }
     }
 }

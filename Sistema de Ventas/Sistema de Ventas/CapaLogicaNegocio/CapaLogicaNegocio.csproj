@@ -65,6 +65,7 @@
     <Compile Include="clsEmpleado.cs" />
     <Compile Include="clsMesa.cs" />
     <Compile Include="clsProducto.cs" />
+    <Compile Include="clsSala.cs" />
     <Compile Include="clsUsuarios.cs" />
     <Compile Include="clsVentas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

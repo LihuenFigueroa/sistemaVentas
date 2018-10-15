@@ -1,4 +1,6 @@
-﻿namespace Capa_de_Presentacion
+﻿using System.Windows.Forms;
+
+namespace Capa_de_Presentacion
 {
     partial class FrmMenuPrincipal
     {
@@ -845,5 +847,7 @@
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Button button36;
         private System.Windows.Forms.Button button37;
+
+     
     }
 }

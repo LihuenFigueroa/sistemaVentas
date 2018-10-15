@@ -36,9 +36,8 @@ namespace Capa_de_Presentacion
                 else
                 {
                     this.Close();
-                    string title =S.GetNombre();
-                    TabPage myTabPage = new TabPage(title);
-                    tabControl1.TabPages.Add(myTabPage);
+                    FrmMenuPrincipal MP = FrmMenuPrincipal.CrearInstancia();
+                    MP.AgregarSolapa(S.GetNombre());
                 }
             }
         }

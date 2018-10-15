@@ -23,7 +23,10 @@ namespace CapaLogicaNegocio
        public String Direccion { get; set; }
        public Char EstadoCivil { get; set; }
 
+    
 
+
+       
        public String MantenimientoEmpleados() {
            List<clsParametro> lst = new List<clsParametro>();
            String Mensaje = "";
@@ -48,6 +51,7 @@ namespace CapaLogicaNegocio
        }
 
        public DataTable ListadoEmpleados() {
+          
           return M.Listado("ListadoEmpleados", null);
        }
 

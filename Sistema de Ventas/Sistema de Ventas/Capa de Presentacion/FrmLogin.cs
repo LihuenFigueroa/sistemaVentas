@@ -62,8 +62,8 @@ namespace Capa_de_Presentacion
                         else
                         {
                             DevComponents.DotNetBar.MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-                            FrmMenuPrincipal MP = new FrmMenuPrincipal();
-                            RecuperarDatosSesion();
+                        FrmMenuPrincipal MP = FrmMenuPrincipal.CrearInstancia();
+                        RecuperarDatosSesion();
                             MP.Show();
                             this.Hide();
                         }
