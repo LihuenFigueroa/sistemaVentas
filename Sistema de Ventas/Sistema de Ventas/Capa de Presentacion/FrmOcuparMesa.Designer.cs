@@ -88,7 +88,6 @@
             this.cantidadPersonas.Size = new System.Drawing.Size(129, 21);
             this.cantidadPersonas.TabIndex = 1;
             this.cantidadPersonas.TextChanged += new System.EventHandler(this.cantidadPersonas_TextChanged);
-           
             this.cantidadPersonas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cantidadPersonas_KeyPress);
             // 
             // txtIdE

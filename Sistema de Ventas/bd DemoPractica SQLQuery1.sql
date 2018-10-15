@@ -26,9 +26,9 @@ Create Table Mesa
 IdSala int Not null References Sala,
 NumeroMesa int NOT null,
 CantComensales int not null,
-Libre bit not null,
-EsperaCuenta bit not null,
-Combinada bit
+Libre char not null,
+EsperaCuenta char not null,
+Combinada char
 )
 Go
 
@@ -232,6 +232,26 @@ As Begin
 	End
 End
 Go
+
+Create Proc RegistrarMesa
+@IdMesa int ,
+@IdSala int ,
+@NumeroMesa int ,
+@CantComensales int,
+@Libre char ,
+@EsperaCuenta char,
+@Combinada char,
+@Mensaje varchar(50) Out
+As Begin
+	If(Exists(Select * From Mesa Where IdMesa=@IdMesa))
+		Set @Mensaje='Imposible registrar esta mesa.'
+	Else Begin
+		Insert Producto Values(@IdMesa,@IdSala,@NumeroMesa,@CantComensales,@Libre,@EsperaCuenta,@Combinada)
+		Set @Mensaje='Mesa registrada correctamente.'
+	End
+End
+Go
+
 
 Create Proc ActualizarProducto
 @IdProducto Int,
@@ -518,6 +538,9 @@ As Begin
 		Update Producto Set Stock=@Stock-@Cantidad Where IdProducto=@IdProducto
 End
 Go
+
+
+
 --------------------------------------
 -- INSERCIONES INICIALES --
 Insert Cargo Values('Administrador')
@@ -533,7 +556,5 @@ Go
 Insert Producto Values(1,'Gaseosa','Pepsi',5,4.90,5.90,'12/12/2013')
 Go
 ---------------------------------------
-
-Select * From Usuario
-select * from Empleado
-Go
+Select *
+FROM Empleado
