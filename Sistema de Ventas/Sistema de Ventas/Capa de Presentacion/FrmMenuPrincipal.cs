@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using CapaLogicaNegocio;
 using DevComponents.DotNetBar;
 
 namespace Capa_de_Presentacion
@@ -17,8 +17,44 @@ namespace Capa_de_Presentacion
         int EnviarFecha = 0;
         private static FrmMenuPrincipal _singleton;
         private FrmMenuPrincipal()
-        {
+        {            
             InitializeComponent();
+            this.S = new clsSala();
+            try
+            {
+                DataTable dt = new DataTable();
+                dt = S.ListarSalas();
+                int cantidadSalas = dt.Rows.Count;
+                for (int i = 0; i < cantidadSalas; i++)
+                {
+                    TabPage myTabPage = new TabPage(dt.Rows[i][1].ToString());
+                    myTabPage.Name = dt.Rows[i][1].ToString();
+                    myTabPage.Text = dt.Rows[i][1].ToString();
+                    this.tabControl1.TabPages.Add(myTabPage);
+                    System.Windows.Forms.FlowLayoutPanel flowLayoutPanelx = new System.Windows.Forms.FlowLayoutPanel();
+                    myTabPage.Controls.Add(flowLayoutPanelx);
+                    flowLayoutPanelx.BackColor = System.Drawing.Color.MediumBlue;
+                    flowLayoutPanelx.Location = new System.Drawing.Point(0, 0);
+                    flowLayoutPanelx.Name = "flowLayoutPanelx";
+                    flowLayoutPanelx.Size = new System.Drawing.Size(940, 426);
+                    flowLayoutPanelx.TabIndex = 44;
+                    myTabPage.SuspendLayout();
+                    flowLayoutPanelx.SuspendLayout();
+                }
+            }
+            catch (System.Exception e)
+            {
+
+                throw e;
+            }
+            foreach (TabPage tbp in tabControl1.TabPages)
+            {
+                tbp.ResumeLayout(false);
+                foreach (System.Windows.Forms.FlowLayoutPanel flw in tbp.Controls)
+                {
+                    flw.ResumeLayout(false);
+                }
+            }
         }
 
         public static FrmMenuPrincipal CrearInstancia()
@@ -88,12 +124,6 @@ namespace Capa_de_Presentacion
             Application.Exit();
         }     
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FrmOcuparMesa om = new FrmOcuparMesa();
-            om.Show();
-            this.button1.Image = global::Capa_de_Presentacion.Properties.Resources.mesa_ocupada;
-        }
 
         private void button37_Click(object sender, EventArgs e)
         {
@@ -103,6 +133,7 @@ namespace Capa_de_Presentacion
 
         public void AgregarSolapa(string nombre_solapa)
         {
+            /*
             TabPage myTabPage = new TabPage(nombre_solapa);
             this.tabControl1.TabPages.Add(myTabPage);
             System.Windows.Forms.FlowLayoutPanel flowLayoutPanelx = new System.Windows.Forms.FlowLayoutPanel();
@@ -112,6 +143,7 @@ namespace Capa_de_Presentacion
             flowLayoutPanelx.Name = "flowLayoutPanelx";
             flowLayoutPanelx.Size = new System.Drawing.Size(940, 426);
             flowLayoutPanelx.TabIndex = 44;
+            */
         }
     }
 }
