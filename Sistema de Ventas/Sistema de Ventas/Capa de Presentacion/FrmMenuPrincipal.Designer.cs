@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using CapaLogicaNegocio;
+using System.Data;
+using System.Windows.Forms;
 
 namespace Capa_de_Presentacion
 {
@@ -37,6 +39,7 @@ namespace Capa_de_Presentacion
             this.label3 = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button37 = new System.Windows.Forms.Button();
             this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
@@ -47,8 +50,6 @@ namespace Capa_de_Presentacion
             this.lblUsuario = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.Caracas = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -67,8 +68,6 @@ namespace Capa_de_Presentacion
             this.button18 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
-            this.Maracaibo = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button36 = new System.Windows.Forms.Button();
             this.button35 = new System.Windows.Forms.Button();
             this.button34 = new System.Windows.Forms.Button();
@@ -88,14 +87,12 @@ namespace Capa_de_Presentacion
             this.button20 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button37 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.Caracas.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.Maracaibo.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+
+            //
+            S = new clsSala();
             // 
             // label2
             // 
@@ -154,6 +151,17 @@ namespace Capa_de_Presentacion
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 407);
             this.panel1.TabIndex = 5;
+            // 
+            // button37
+            // 
+            this.button37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button37.Location = new System.Drawing.Point(14, 299);
+            this.button37.Name = "button37";
+            this.button37.Size = new System.Drawing.Size(170, 40);
+            this.button37.TabIndex = 2;
+            this.button37.Text = "&Crear Sala ";
+            this.button37.UseVisualStyleBackColor = true;
+            this.button37.Click += new System.EventHandler(this.button37_Click);
             // 
             // btnEmpleados
             // 
@@ -246,54 +254,41 @@ namespace Capa_de_Presentacion
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.Caracas);
-            this.tabControl1.Controls.Add(this.Maracaibo);
+            //               
             this.tabControl1.Location = new System.Drawing.Point(218, 120);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(951, 448);
             this.tabControl1.TabIndex = 26;
-            // 
-            // Caracas
-            // 
-            this.Caracas.Controls.Add(this.flowLayoutPanel2);
-            this.Caracas.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Caracas.ForeColor = System.Drawing.Color.Black;
-            this.Caracas.Location = new System.Drawing.Point(4, 22);
-            this.Caracas.Name = "Caracas";
-            this.Caracas.Padding = new System.Windows.Forms.Padding(3);
-            this.Caracas.Size = new System.Drawing.Size(943, 422);
-            this.Caracas.TabIndex = 0;
-            this.Caracas.Text = "Caracas";
-            this.Caracas.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.MediumBlue;
-            this.flowLayoutPanel2.Controls.Add(this.button1);
-            this.flowLayoutPanel2.Controls.Add(this.button2);
-            this.flowLayoutPanel2.Controls.Add(this.button3);
-            this.flowLayoutPanel2.Controls.Add(this.button12);
-            this.flowLayoutPanel2.Controls.Add(this.button11);
-            this.flowLayoutPanel2.Controls.Add(this.button10);
-            this.flowLayoutPanel2.Controls.Add(this.button6);
-            this.flowLayoutPanel2.Controls.Add(this.button5);
-            this.flowLayoutPanel2.Controls.Add(this.button4);
-            this.flowLayoutPanel2.Controls.Add(this.button15);
-            this.flowLayoutPanel2.Controls.Add(this.button14);
-            this.flowLayoutPanel2.Controls.Add(this.button13);
-            this.flowLayoutPanel2.Controls.Add(this.button9);
-            this.flowLayoutPanel2.Controls.Add(this.button8);
-            this.flowLayoutPanel2.Controls.Add(this.button7);
-            this.flowLayoutPanel2.Controls.Add(this.button18);
-            this.flowLayoutPanel2.Controls.Add(this.button17);
-            this.flowLayoutPanel2.Controls.Add(this.button16);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(940, 426);
-            this.flowLayoutPanel2.TabIndex = 44;
-            // 
+
+            try
+            {
+                DataTable dt = new DataTable();
+                dt = S.ListarSalas();
+                int cantidadSalas = dt.Rows.Count;
+                for (int i = 0; i < cantidadSalas; i++)
+                {
+                    TabPage myTabPage = new TabPage(dt.Rows[i][1].ToString());
+                    myTabPage.Name = dt.Rows[i][1].ToString();
+                    myTabPage.Text = dt.Rows[i][1].ToString();
+                    this.tabControl1.TabPages.Add(myTabPage);
+                    System.Windows.Forms.FlowLayoutPanel flowLayoutPanelx = new System.Windows.Forms.FlowLayoutPanel();
+                    myTabPage.Controls.Add(flowLayoutPanelx);
+                    flowLayoutPanelx.BackColor = System.Drawing.Color.MediumBlue;
+                    flowLayoutPanelx.Location = new System.Drawing.Point(0, 0);
+                    flowLayoutPanelx.Name = "flowLayoutPanelx";
+                    flowLayoutPanelx.Size = new System.Drawing.Size(940, 426);
+                    flowLayoutPanelx.TabIndex = 44;
+                    myTabPage.SuspendLayout();
+                    flowLayoutPanelx.SuspendLayout();
+                }
+            }
+            catch (System.Exception e)
+            {
+
+                throw e;
+            }
+          
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -492,42 +487,7 @@ namespace Capa_de_Presentacion
             this.button16.TabIndex = 43;
             this.button16.Text = "18";
             this.button16.UseVisualStyleBackColor = true;
-            // 
-            // Maracaibo
-            // 
-            this.Maracaibo.Controls.Add(this.flowLayoutPanel1);
-            this.Maracaibo.Location = new System.Drawing.Point(4, 22);
-            this.Maracaibo.Name = "Maracaibo";
-            this.Maracaibo.Padding = new System.Windows.Forms.Padding(3);
-            this.Maracaibo.Size = new System.Drawing.Size(943, 422);
-            this.Maracaibo.TabIndex = 1;
-            this.Maracaibo.Text = "Maracaibo";
-            this.Maracaibo.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.button36);
-            this.flowLayoutPanel1.Controls.Add(this.button35);
-            this.flowLayoutPanel1.Controls.Add(this.button34);
-            this.flowLayoutPanel1.Controls.Add(this.button27);
-            this.flowLayoutPanel1.Controls.Add(this.button26);
-            this.flowLayoutPanel1.Controls.Add(this.button25);
-            this.flowLayoutPanel1.Controls.Add(this.button33);
-            this.flowLayoutPanel1.Controls.Add(this.button32);
-            this.flowLayoutPanel1.Controls.Add(this.button31);
-            this.flowLayoutPanel1.Controls.Add(this.button24);
-            this.flowLayoutPanel1.Controls.Add(this.button23);
-            this.flowLayoutPanel1.Controls.Add(this.button22);
-            this.flowLayoutPanel1.Controls.Add(this.button30);
-            this.flowLayoutPanel1.Controls.Add(this.button29);
-            this.flowLayoutPanel1.Controls.Add(this.button28);
-            this.flowLayoutPanel1.Controls.Add(this.button21);
-            this.flowLayoutPanel1.Controls.Add(this.button20);
-            this.flowLayoutPanel1.Controls.Add(this.button19);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(940, 479);
-            this.flowLayoutPanel1.TabIndex = 44;
+           
             // 
             // button36
             // 
@@ -739,23 +699,11 @@ namespace Capa_de_Presentacion
             this.label1.TabIndex = 0;
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button37
-            // 
-            this.button37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button37.Location = new System.Drawing.Point(14, 299);
-            this.button37.Name = "button37";
-            this.button37.Size = new System.Drawing.Size(170, 40);
-            this.button37.TabIndex = 2;
-            this.button37.Text = "&Crear Sala ";
-            this.button37.UseVisualStyleBackColor = true;
-            this.button37.Click += new System.EventHandler(this.button37_Click);
-            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
-            this.BackgroundImage = global::Capa_de_Presentacion.Properties.Resources.backGroundPpal;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1184, 661);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lblUsuario);
@@ -779,10 +727,15 @@ namespace Capa_de_Presentacion
             this.Load += new System.EventHandler(this.FrmMenuPrincipal_Load);
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
-            this.Caracas.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.Maracaibo.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
+            foreach (TabPage tbp in tabControl1.TabPages)
+            {
+                tbp.ResumeLayout();
+                foreach (System.Windows.Forms.FlowLayoutPanel flw in tbp.Controls)
+                {
+                    flw.ResumeLayout();
+                }
+            }
+           
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -806,7 +759,6 @@ namespace Capa_de_Presentacion
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnEmpleados;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage Caracas;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button button18;
@@ -825,9 +777,8 @@ namespace Capa_de_Presentacion
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.TabPage Maracaibo;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        
+        
         private System.Windows.Forms.Button button33;
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Button button19;
@@ -848,6 +799,6 @@ namespace Capa_de_Presentacion
         private System.Windows.Forms.Button button36;
         private System.Windows.Forms.Button button37;
 
-     
+        private clsSala S;
     }
 }

@@ -86,12 +86,7 @@ namespace Capa_de_Presentacion
         private void FrmMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
+        }     
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -110,6 +105,13 @@ namespace Capa_de_Presentacion
         {
             TabPage myTabPage = new TabPage(nombre_solapa);
             this.tabControl1.TabPages.Add(myTabPage);
+            System.Windows.Forms.FlowLayoutPanel flowLayoutPanelx = new System.Windows.Forms.FlowLayoutPanel();
+            myTabPage.Controls.Add(flowLayoutPanelx);
+            flowLayoutPanelx.BackColor = System.Drawing.Color.MediumBlue;
+            flowLayoutPanelx.Location = new System.Drawing.Point(0, 0);
+            flowLayoutPanelx.Name = "flowLayoutPanelx";
+            flowLayoutPanelx.Size = new System.Drawing.Size(940, 426);
+            flowLayoutPanelx.TabIndex = 44;
         }
     }
 }

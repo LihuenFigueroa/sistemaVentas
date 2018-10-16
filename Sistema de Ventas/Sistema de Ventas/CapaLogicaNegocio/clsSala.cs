@@ -52,5 +52,10 @@ namespace CapaLogicaNegocio
                 throw e;
             }
         }
+
+        public DataTable ListarSalas()
+        {
+            return M.Listado("ListarSalas",null);
+        }
     }
 }
