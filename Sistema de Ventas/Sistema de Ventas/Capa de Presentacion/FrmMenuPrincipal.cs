@@ -72,7 +72,7 @@ namespace Capa_de_Presentacion
         }
 
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
-        {
+        {            
             timer1.Interval = 500;
             timer1.Start();
         }

@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsVenta.cs" />
+    <Compile Include="ControlMoveOrResizer.cs" />
     <Compile Include="FrmCrearSala.cs">
       <SubType>Form</SubType>
     </Compile>

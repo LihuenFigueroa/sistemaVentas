@@ -40,6 +40,7 @@ namespace Capa_de_Presentacion
             this.label3 = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCrearMesa = new System.Windows.Forms.Button();
             this.btnCrearSala = new System.Windows.Forms.Button();
             this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
@@ -101,6 +102,7 @@ namespace Capa_de_Presentacion
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnCrearMesa);
             this.panel1.Controls.Add(this.btnCrearSala);
             this.panel1.Controls.Add(this.btnEmpleados);
             this.panel1.Controls.Add(this.btnReportes);
@@ -112,6 +114,16 @@ namespace Capa_de_Presentacion
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 407);
             this.panel1.TabIndex = 5;
+            // 
+            // btnCrearMesa
+            // 
+            this.btnCrearMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearMesa.Location = new System.Drawing.Point(14, 345);
+            this.btnCrearMesa.Name = "btnCrearMesa";
+            this.btnCrearMesa.Size = new System.Drawing.Size(170, 40);
+            this.btnCrearMesa.TabIndex = 3;
+            this.btnCrearMesa.Text = "&Crear Mesa";
+            this.btnCrearMesa.UseVisualStyleBackColor = true;
             // 
             // btnCrearSala
             // 
@@ -221,8 +233,6 @@ namespace Capa_de_Presentacion
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(951, 448);
             this.tabControl1.TabIndex = 26;
-            
-
             // 
             // label1
             // 
@@ -263,7 +273,6 @@ namespace Capa_de_Presentacion
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenuPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.FrmMenuPrincipal_Load);
             this.panel1.ResumeLayout(false);
-           
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,5 +298,6 @@ namespace Capa_de_Presentacion
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button btnCrearSala;
         private clsSala S;
+        private Button btnCrearMesa;
     }
 }
