@@ -60,15 +60,12 @@ namespace CapaLogicaNegocio
 
         public int ObtenerIdSala(String nombre_sala)
         {
-            DataTable dt= new DataTable();
+           // DataTable dt= new DataTable();
             List<clsParametro> lst = new List<clsParametro>();
             lst.Add(new clsParametro("@Nombre",nombre_sala));
-            dt = M.Listado("ObtenerIdSala",lst);
-
-
-            return 0;
-
-
+            lst.Add(new clsParametro("@IdSala","", SqlDbType.VarChar, ParameterDirection.Output, 100));
+            M.EjecutarSP("ObtenerIdSala",ref lst);
+            return int.Parse(lst[1].Valor.ToString());        
         }
     }
 }

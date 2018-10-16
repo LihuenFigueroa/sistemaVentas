@@ -24,20 +24,20 @@ namespace CapaLogicaNegocio
         private char combinada;
         private Button botonMesa;
 
-       
+
 
         public int GetIdMesa()
-        {   return this.IdMesa;}
+        { return this.IdMesa; }
 
         public void SetIdMesa(int id_mesa)
-        {   this.IdMesa = id_mesa; }
+        { this.IdMesa = id_mesa; }
 
         public int GetIdSala()
         { return this.IdSala; }
 
         public void SetIdSala(int id_sala)
         { this.IdSala = id_sala; }
-        
+
         public int GetNumeroMesa()
         { return this.numeroMesa; }
 
@@ -53,7 +53,7 @@ namespace CapaLogicaNegocio
         public char VerEstado()
         { return this.libre; }
 
-        public void SetEstado (char libre)
+        public void SetEstado(char libre)
         { this.libre = libre; }
 
         public char GetEsperarCuenta()
@@ -66,17 +66,17 @@ namespace CapaLogicaNegocio
         { return this.combinada; }
 
         public void SetCombinada(char combinada)
-        { this.combinada =combinada; }
+        { this.combinada = combinada; }
 
         public Button GetBotonMesa()
         { return this.botonMesa; }
 
         public void SetBotonMesa(Button btn_mesa)
-        {this.botonMesa = btn_mesa;}
+        { this.botonMesa = btn_mesa; }
 
 
         ////////////////////---METODOS---///////////////////////////
-        
+
         public String RegistrarMesa()
         {
             List<clsParametro> lst = new List<clsParametro>();
@@ -120,5 +120,12 @@ namespace CapaLogicaNegocio
             this.libre = '1';
         }
 
-       
+        public int ObtenerNumeroMesa()
+        {
+            List<clsParametro> lst = new List<clsParametro>();
+            lst.Add(new clsParametro("@NumeroMesa", "", SqlDbType.VarChar, ParameterDirection.Output, 100));
+            M.EjecutarSP("ObtenerNumeroMesa", ref lst);
+            return int.Parse(lst[0].Valor.ToString());
+        }
+    } 
 }

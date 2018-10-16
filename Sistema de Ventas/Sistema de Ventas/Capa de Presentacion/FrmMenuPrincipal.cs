@@ -31,15 +31,15 @@ namespace Capa_de_Presentacion
                     myTabPage.Name = dt.Rows[i][1].ToString();
                     myTabPage.Text = dt.Rows[i][1].ToString();
                     this.tabControl1.TabPages.Add(myTabPage);
-                    System.Windows.Forms.FlowLayoutPanel flowLayoutPanelx = new System.Windows.Forms.FlowLayoutPanel();
-                    myTabPage.Controls.Add(flowLayoutPanelx);
-                    flowLayoutPanelx.BackColor = System.Drawing.Color.MediumBlue;
-                    flowLayoutPanelx.Location = new System.Drawing.Point(0, 0);
-                    flowLayoutPanelx.Name = "flowLayoutPanelx";
-                    flowLayoutPanelx.Size = new System.Drawing.Size(940, 426);
-                    flowLayoutPanelx.TabIndex = 44;
+                    System.Windows.Forms.Panel panelx = new System.Windows.Forms.Panel();
+                    myTabPage.Controls.Add(panelx);
+                    panelx.BackColor = System.Drawing.Color.MediumBlue;
+                    panelx.Location = new System.Drawing.Point(0, 0);
+                    panelx.Name = "panelx";
+                    panelx.Size = new System.Drawing.Size(947, 426);
+                    panelx.TabIndex = 0;
                     myTabPage.SuspendLayout();
-                    flowLayoutPanelx.SuspendLayout();
+                    panelx.SuspendLayout();
                 }
             }
             catch (System.Exception e)
@@ -50,11 +50,12 @@ namespace Capa_de_Presentacion
             foreach (TabPage tbp in tabControl1.TabPages)
             {
                 tbp.ResumeLayout(false);
-                foreach (System.Windows.Forms.FlowLayoutPanel flw in tbp.Controls)
+                foreach (System.Windows.Forms.Panel pnl in tbp.Controls)
                 {
-                    flw.ResumeLayout(false);
+                    pnl.ResumeLayout(false);
                 }
             }
+
         }
 
         public static FrmMenuPrincipal CrearInstancia()
@@ -118,13 +119,7 @@ namespace Capa_de_Presentacion
             FrmListadoEmpleados E = new FrmListadoEmpleados();
             E.Show();
         }
-
-        private void FrmMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }     
-
-
+         
         private void button37_Click(object sender, EventArgs e)
         {
             FrmCrearSala S = new FrmCrearSala();
@@ -149,28 +144,62 @@ namespace Capa_de_Presentacion
         private void btnCrearMesa_Click(object sender, EventArgs e)
         {
             clsMesa nuevaMesa = new clsMesa();
-            int id_sala = this.ObtenerIdSala();
+            clsSala salaActiva = new clsSala();
+            String nombreSalaActiva = this.tabControl1.SelectedTab.Name.ToString();
+            int id_sala = salaActiva.ObtenerIdSala(nombreSalaActiva);
             nuevaMesa.SetIdSala(id_sala);
-            int numero_mesa = this.ObtenerNumeroMesa();
+            int numero_mesa = nuevaMesa.ObtenerNumeroMesa();
             nuevaMesa.SetNumeroMesa(numero_mesa);
             nuevaMesa.SetCantComensales(0);
             nuevaMesa.SetEstado('1');
             nuevaMesa.SetEsperarCuenta('0');
             nuevaMesa.SetCombinada('0');
             ////CREAR EL BOTON /////
+            System.Windows.Forms.Button btnMesa = new System.Windows.Forms.Button();
+            btnMesa.AutoSize = true;
+            btnMesa.BackgroundImage = global::Capa_de_Presentacion.Properties.Resources.mesa_libre;
+            btnMesa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            btnMesa.Font = new System.Drawing.Font("Lucida Fax", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnMesa.Location = new System.Drawing.Point(21, 19);
+            btnMesa.Name = "btnMesa";
+            btnMesa.Size = new System.Drawing.Size(117, 110);
+            btnMesa.TabIndex = 27;
+            btnMesa.Text = nuevaMesa.GetNumeroMesa().ToString();
+            btnMesa.UseVisualStyleBackColor = true;
+            ControlMoverOrResizer.Init(btnMesa);
             ////////////////////////
             // ASIGNARSELO A LA MESA//
+            nuevaMesa.SetBotonMesa(btnMesa);
+            //////////////////////////
             // ASIGNAR LA MESA A LA SALA ACTIVA//
-            // LLAMAR A ACTUALIZAR IMAGEN DE LA MESA //
+            foreach (System.Windows.Forms.Panel pnl in this.tabControl1.SelectedTab.Controls)
+            {
+                pnl.Controls.Add(btnMesa);
+            }
+            /////////////////////////////////////                                   
             // LLAMAR A REGISTRAR MESA//
+            String mensaje=nuevaMesa.RegistrarMesa();
+            /////////////////////////////////////
         }
 
-        private int ObtenerIdSala()
+        private void FrmMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            String nombre_sala = this.tabControl1.SelectedTab.Name.ToString();
-            clsSala nuevaSala = new clsSala();
-            return nuevaSala.ObtenerIdSala(nombre_sala);
-            return 0;
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                dynamic mboxResult=DevComponents.DotNetBar.MessageBoxEx.Show("¿Está Seguro que Desea Salir.?", "Sistema de Ventas.", MessageBoxButtons.YesNo, MessageBoxIcon.Error);                 
+                    if (mboxResult == DialogResult.No)
+                {
+                    /* Cancel the Closing event from closing the form. */
+                    e.Cancel = true;
+                }
+
+                else if (mboxResult == DialogResult.Yes)
+                {
+                    /* Closing the form. */
+                    e.Cancel = false;
+                    Application.Exit();
+                }
+            }
         }
     }
 }
