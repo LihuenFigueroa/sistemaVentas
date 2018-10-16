@@ -83,13 +83,13 @@ namespace CapaLogicaNegocio
             String mensaje = "";
             try
             {
-                lst.Add(new clsParametro("@IdMesa", this.GetIdMesa()));
-                lst.Add(new clsParametro("@IdSala", this.GetIdSala()));
-                lst.Add(new clsParametro("@NumeroMesa", this.GetNumeroMesa()));
-                lst.Add(new clsParametro("@CantComensales", this.GetCantComensales()));
-                lst.Add(new clsParametro("@Libre", this.VerEstado()));
-                lst.Add(new clsParametro("@EsperaCuenta", this.GetEsperarCuenta()));
-                lst.Add(new clsParametro("@Combinada", this.GetCombinada()));
+                lst.Add(new clsParametro("@IdMesa", this.IdMesa));
+                lst.Add(new clsParametro("@IdSala", this.IdSala));
+                lst.Add(new clsParametro("@NumeroMesa", this.numeroMesa));
+                lst.Add(new clsParametro("@CantComensales", this.cantComensales));
+                lst.Add(new clsParametro("@Libre", this.libre));
+                lst.Add(new clsParametro("@EsperaCuenta", this.esperaCuenta));
+                lst.Add(new clsParametro("@Combinada", this.combinada));
                 lst.Add(new clsParametro("@Mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
                 M.EjecutarSP("RegistrarMesa", ref lst);
                 mensaje = lst[7].Valor.ToString();
@@ -119,5 +119,6 @@ namespace CapaLogicaNegocio
         {
             this.libre = '1';
         }
-    }
+
+       
 }

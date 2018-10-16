@@ -124,6 +124,7 @@ namespace Capa_de_Presentacion
             this.btnCrearMesa.TabIndex = 3;
             this.btnCrearMesa.Text = "&Crear Mesa";
             this.btnCrearMesa.UseVisualStyleBackColor = true;
+            this.btnCrearMesa.Click += new System.EventHandler(this.btnCrearMesa_Click);
             // 
             // btnCrearSala
             // 

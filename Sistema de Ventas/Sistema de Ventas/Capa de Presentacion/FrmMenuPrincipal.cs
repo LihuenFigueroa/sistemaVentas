@@ -133,7 +133,7 @@ namespace Capa_de_Presentacion
 
         public void AgregarSolapa(string nombre_solapa)
         {
-            /*
+            
             TabPage myTabPage = new TabPage(nombre_solapa);
             this.tabControl1.TabPages.Add(myTabPage);
             System.Windows.Forms.FlowLayoutPanel flowLayoutPanelx = new System.Windows.Forms.FlowLayoutPanel();
@@ -143,7 +143,34 @@ namespace Capa_de_Presentacion
             flowLayoutPanelx.Name = "flowLayoutPanelx";
             flowLayoutPanelx.Size = new System.Drawing.Size(940, 426);
             flowLayoutPanelx.TabIndex = 44;
-            */
+            
+        }
+
+        private void btnCrearMesa_Click(object sender, EventArgs e)
+        {
+            clsMesa nuevaMesa = new clsMesa();
+            int id_sala = this.ObtenerIdSala();
+            nuevaMesa.SetIdSala(id_sala);
+            int numero_mesa = this.ObtenerNumeroMesa();
+            nuevaMesa.SetNumeroMesa(numero_mesa);
+            nuevaMesa.SetCantComensales(0);
+            nuevaMesa.SetEstado('1');
+            nuevaMesa.SetEsperarCuenta('0');
+            nuevaMesa.SetCombinada('0');
+            ////CREAR EL BOTON /////
+            ////////////////////////
+            // ASIGNARSELO A LA MESA//
+            // ASIGNAR LA MESA A LA SALA ACTIVA//
+            // LLAMAR A ACTUALIZAR IMAGEN DE LA MESA //
+            // LLAMAR A REGISTRAR MESA//
+        }
+
+        private int ObtenerIdSala()
+        {
+            String nombre_sala = this.tabControl1.SelectedTab.Name.ToString();
+            clsSala nuevaSala = new clsSala();
+            return nuevaSala.ObtenerIdSala(nombre_sala);
+            return 0;
         }
     }
 }

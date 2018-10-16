@@ -57,5 +57,18 @@ namespace CapaLogicaNegocio
         {
             return M.Listado("ListarSalas",null);
         }
+
+        public int ObtenerIdSala(String nombre_sala)
+        {
+            DataTable dt= new DataTable();
+            List<clsParametro> lst = new List<clsParametro>();
+            lst.Add(new clsParametro("@Nombre",nombre_sala));
+            dt = M.Listado("ObtenerIdSala",lst);
+
+
+            return 0;
+
+
+        }
     }
 }
