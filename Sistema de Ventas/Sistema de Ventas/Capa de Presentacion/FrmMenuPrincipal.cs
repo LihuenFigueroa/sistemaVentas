@@ -174,7 +174,7 @@ namespace Capa_de_Presentacion
             int numero_mesa = nuevaMesa.ObtenerNumeroMesa();
             nuevaMesa.SetNumeroMesa(numero_mesa);
             nuevaMesa.SetCantComensales(0);
-            nuevaMesa.SetEstado('1');
+            nuevaMesa.SetEstado('0');
             nuevaMesa.SetEsperarCuenta('0');
             nuevaMesa.SetCombinada('0');
             ////CREAR EL BOTON /////
@@ -266,7 +266,7 @@ namespace Capa_de_Presentacion
                     }
                     break;    
                 case "1":
-                    FrmRegistroVentas frv = new FrmRegistroVentas(id_mesa);
+                    FrmRegistroVentas frv = new FrmRegistroVentas(id_mesa,mesaClickeada);
                     frv.Show();
 
                     break;

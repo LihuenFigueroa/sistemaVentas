@@ -19,12 +19,14 @@ namespace Capa_de_Presentacion
         clsDetalleVenta Detalle = new clsDetalleVenta();
         clsMesa Mesa = new clsMesa();
         public int id_mesa_actual;
+        public Button mesa_clickeada_actual;
         private List<clsVenta> lst = new List<clsVenta>();
 
-        public FrmRegistroVentas(int id_mesa)
+        public FrmRegistroVentas(int id_mesa,Button mesa_clikeada)
         {
             InitializeComponent();
             id_mesa_actual = id_mesa;
+            mesa_clickeada_actual = mesa_clikeada;
         }
 
         public FrmRegistroVentas()
@@ -204,6 +206,8 @@ namespace Capa_de_Presentacion
             if (DevComponents.DotNetBar.MessageBoxEx.Show("¿Está Seguro que Desea Salir.?", "Sistema de Ventas", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes) {
                 this.Close();
             }
+            FrmMenuPrincipal MP = FrmMenuPrincipal.CrearInstancia();
+            MP.BringToFront();
         }
 
         private void btnEliminarItem_Click(object sender, EventArgs e)
@@ -321,6 +325,11 @@ namespace Capa_de_Presentacion
             detalleVentaAux.EliminarDetallesVentas(id_mesa_actual);
             DevComponents.DotNetBar.MessageBoxEx.Show("Se cerro la mesa con exito", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            Mesa.DesocuparMesa(id_mesa_actual);
+            mesa_clickeada_actual.BackgroundImage = global::Capa_de_Presentacion.Properties.Resources.mesa_libre;
+            this.Close();
+            FrmMenuPrincipal MP = FrmMenuPrincipal.CrearInstancia();
+            MP.BringToFront();
             ////////////////////////////////////////////////////////
             ////////////// IMPRIMIR TICKET FISCAL //////////////////
             ////////////////////////////////////////////////////////

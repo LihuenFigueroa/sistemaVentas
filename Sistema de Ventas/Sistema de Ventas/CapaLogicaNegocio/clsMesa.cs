@@ -268,6 +268,21 @@ namespace CapaLogicaNegocio
 
         }
 
+        public void DesocuparMesa(int id_mesa)
+        {
+            List<clsParametro> lst = new List<clsParametro>();
+            try
+            {
+                lst.Add(new clsParametro("@IdMesa", id_mesa));                
+                M.EjecutarSP("DesocuparMesa", ref lst);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         public int ObtenerCantidadPersonas(int id_mesa)
         {
             List<clsParametro> lst = new List<clsParametro>();
