@@ -20,7 +20,7 @@ namespace Capa_de_Presentacion
         clsMesa Mesa = new clsMesa();
         public int id_mesa_actual;
         public Button mesa_clickeada_actual;
-        private List<clsVenta> lst = new List<clsVenta>();
+        public List<clsVenta> lst = new List<clsVenta>();
 
         public FrmRegistroVentas(int id_mesa,Button mesa_clikeada)
         {
@@ -320,6 +320,61 @@ namespace Capa_de_Presentacion
 
         private void btnCerrarMesa_Click(object sender, EventArgs e)
         {
+            
+            int id_venta = lst[0].IdVenta;
+            clsVentas ventaAux = new clsVentas();
+            int nroTicket = ventaAux.ObtenerNroTicket(id_venta);
+            ////////////////////////////////////////////////////////
+            ////////////// IMPRIMIR TICKET FISCAL //////////////////
+            ////////////////////////////////////////////////////////
+            CrearTicket ticket = new CrearTicket();
+            ticket.AbreCajon();
+            ticket.TextoCentro("REST +58");
+            ticket.TextoIzquierda("EXPEDIDO EN SUCURSAL LA PLATA");
+            ticket.TextoIzquierda("DIREC: 11 47 Y 48");
+            ticket.TextoExtremos("Caja # 1","Ticket #"+nroTicket.ToString());
+            ticket.lineasAsteriscos();
+
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("ATENDIO: "+Program.NombreEmpleadoLogueado);
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("FECHA : "+ DateTime.Now.ToShortDateString()+"HORA :"+DateTime.Now.ToShortTimeString());
+            ticket.lineasAsteriscos();
+
+            foreach (DataGridViewRow fila in this.dataGridView1.Rows)
+            {
+                ticket.AgregarArticulo(fila.Cells[2].Value.ToString(),int.Parse(fila.Cells[1].Value.ToString()), decimal.Parse(fila.Cells[3].Value.ToString()),decimal.Parse(fila.Cells[4].Value.ToString()));
+            }
+
+            ticket.lineasIgual();
+            ticket.AgregarTotales("         SUBTOTAL.......$",1);
+            ticket.AgregarTotales("         IVA............$",1);
+            ticket.AgregarTotales("         TOTAL..........$",2);
+            ticket.TextoIzquierda("");
+            ticket.AgregarTotales("         EFECTIVO.......$",5);
+            ticket.AgregarTotales("         CAMBIO.........$",3);
+
+
+            ticket.TextoIzquierda("");
+            ticket.TextoCentro("GRACIAS POR SU COMPRA");
+            ticket.TextoIzquierda("");
+            ticket.TextoCentro("SEGUINOS EN INSTAGRAM @rest.mas58");
+            ticket.CortaTicket();
+            ticket.ImprimirTicket("NOMBRE DE LA IMPRESORA");
+
+
+
+
+
+
+
+
+
+            ////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////
+
+
             clsDetalleVenta detalleVentaAux = new clsDetalleVenta();
             detalleVentaAux.MandarAlHistorial(id_mesa_actual);
             detalleVentaAux.EliminarDetallesVentas(id_mesa_actual);
@@ -330,17 +385,6 @@ namespace Capa_de_Presentacion
             this.Close();
             FrmMenuPrincipal MP = FrmMenuPrincipal.CrearInstancia();
             MP.BringToFront();
-            ////////////////////////////////////////////////////////
-            ////////////// IMPRIMIR TICKET FISCAL //////////////////
-            ////////////////////////////////////////////////////////
-
-
-
-
-
-            ////////////////////////////////////////////////////////
-            ////////////////////////////////////////////////////////
-            ////////////////////////////////////////////////////////
         }
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
