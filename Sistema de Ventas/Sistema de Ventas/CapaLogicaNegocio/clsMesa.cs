@@ -242,6 +242,15 @@ namespace CapaLogicaNegocio
             M.EjecutarSP("ObtenerNumeroMesaConId" + "", ref lst);
             return int.Parse(lst[1].Valor.ToString());
         }
+        public int ObtenerEstado(int id_mesa)
+        {
+            // DataTable dt= new DataTable();
+            List<clsParametro> lst = new List<clsParametro>();
+            lst.Add(new clsParametro("@IdMesa", id_mesa));
+            lst.Add(new clsParametro("@Libre", "", SqlDbType.VarChar, ParameterDirection.Output, 100));
+            M.EjecutarSP("ObtenerEstado" + "", ref lst);
+            return int.Parse(lst[1].Valor.ToString());
+        }
 
         public void OcuparMesa(int id_mesa,String cantComensales)
         {
