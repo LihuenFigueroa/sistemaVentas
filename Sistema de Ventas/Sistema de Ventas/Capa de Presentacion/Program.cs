@@ -13,12 +13,7 @@ namespace Capa_de_Presentacion
         /// </summary>
          public static int Evento;
 
-        //Datos del Cliente
-         public static int IdCliente;
-         public static String DocumentoIdentidad;
-         public static String NombreCliente;
-         public static String ApellidosCliente;
-
+      
         //Datos del Producto
          public static int IdProducto;
          public static String Descripcion;

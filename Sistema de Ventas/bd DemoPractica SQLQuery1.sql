@@ -45,15 +45,6 @@ FechaVencimiento Date
 )
 Go
 
-Create Table Cliente
-(IdCliente Int Identity Primary Key,
-DNI Char(8) Not Null,
-Apellidos Varchar(50) Not Null,
-Nombres Varchar(50) Not Null,
-Direccion Varchar(100) Not Null,
-Telefono Varchar(12)
-)
-go
 
 Create Table Cargo
 (IdCargo Int Identity Primary Key,
@@ -77,7 +68,6 @@ Go
 Create Table Venta
 (IdVenta Int Identity Primary Key,
 IdEmpleado Int Not Null References Empleado,
-IdCliente Int Not Null References Cliente,
 IdMesa Int References Mesa,
 Serie Char(5) Not Null,
 NroDocumento Char(7) Not Null,
@@ -108,56 +98,6 @@ Go
 ----------------------------------------
 -- PROCEDIMIENTOS ALMACENADOS --
 
-Create Proc ListarClientes
-As Begin
-	Select IdCliente,DNI,Apellidos,Nombres,Direccion,Telefono From Cliente 
-   End
-Go
-
-Create Proc RegistrarCliente
-(@DNI char(8),
-@Apellidos Varchar(50),
-@Nombres Varchar(50),
-@Direccion Varchar(100),
-@Telefono Varchar(12),
-@Mensaje Varchar(50) Output
-)
-As Begin
-	If(Exists(Select * From Cliente Where Dni=@DNI))
-		Set @Mensaje='Los Datos del Cliente ya Existen.'
-	Else Begin
-		Insert Cliente Values(@DNI,@Apellidos,@Nombres,@Direccion,@Telefono)
-		Set @Mensaje='Registrado Correctamente.'
-		End
-	End
-Go
-
-Create Proc ActualizarCliente
-(@DNI Char(8),
-@Apellidos Varchar(50),
-@Nombres Varchar(50),
-@Direccion Varchar(100),
-@Telefono Varchar(12),
-@Mensaje Varchar(50) Output
-)
-As Begin
-	If(Not Exists(Select * From Cliente Where Dni=@DNI))
-		Set @Mensaje='Los Datos del Cliente no Existen.'
-	Else Begin
-		Update Cliente Set Apellidos=@Apellidos,Nombres=@Nombres,Direccion=@Direccion,Telefono=@Telefono 
-		Where DNI=@DNI
-		Set @Mensaje='Registro Actualizado Correctamente.'
-		End
-	End
-Go
-
-Create Proc FiltrarDatosCliente
-@Datos Varchar(80)
-As Begin
-	Select IdCliente,DNI,Apellidos,Nombres,Direccion,Telefono 
-	From Cliente Where Apellidos+' '+ Nombres=@Datos or Apellidos=@Datos or Nombres=@Datos
-End
-Go
 
 Create Proc FiltrarDatosProducto
 @Datos Varchar(50)
@@ -505,7 +445,6 @@ Go
 
 Create Proc RegistrarVenta
 @IdEmpleado Int,
-@IdCliente Int,
 @IdMesa Int,
 @Serie Char(5),
 @NroDocumento Char(7),
@@ -514,7 +453,7 @@ Create Proc RegistrarVenta
 @Total Money,
 @Mensaje Varchar(100) Out
 As Begin
-	Insert Venta Values(@IdEmpleado,@IdCliente,@IdMesa,@Serie,@NroDocumento,@TipoDocumento,@FechaVenta,@Total)
+	Insert Venta Values(@IdEmpleado,@IdMesa,@Serie,@NroDocumento,@TipoDocumento,@FechaVenta,@Total)
 		Set @Mensaje='La Venta se ha Generado Correctamente.'
 	End
 Go
@@ -547,8 +486,6 @@ Go
 Insert Empleado Values(1,'34004387','Silva Terrones','Miguel','M','11/01/1990','Urb. Santa Rosa','S')
 Go
 Insert Usuario Values(1,'Miguelito','123456')
-Go
-Insert Cliente Values('47660746','Vásquez Ventura','Juan','Urb. Santa Rosa','996687349')
 Go
 Insert Categoria Values('Bebidas'),('Carnes'),('Verduras')
 Go

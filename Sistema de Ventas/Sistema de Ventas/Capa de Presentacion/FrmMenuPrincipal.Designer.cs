@@ -46,7 +46,6 @@ namespace Capa_de_Presentacion
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
-            this.btnClientes = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
@@ -109,7 +108,6 @@ namespace Capa_de_Presentacion
             this.panel1.Controls.Add(this.btnReportes);
             this.panel1.Controls.Add(this.btnVentas);
             this.panel1.Controls.Add(this.btnUsuarios);
-            this.panel1.Controls.Add(this.btnClientes);
             this.panel1.Controls.Add(this.btnProductos);
             this.panel1.Location = new System.Drawing.Point(2, 161);
             this.panel1.Name = "panel1";
@@ -119,7 +117,7 @@ namespace Capa_de_Presentacion
             // btnCrearMesa
             // 
             this.btnCrearMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearMesa.Location = new System.Drawing.Point(14, 345);
+            this.btnCrearMesa.Location = new System.Drawing.Point(14, 299);
             this.btnCrearMesa.Name = "btnCrearMesa";
             this.btnCrearMesa.Size = new System.Drawing.Size(170, 40);
             this.btnCrearMesa.TabIndex = 3;
@@ -130,7 +128,7 @@ namespace Capa_de_Presentacion
             // btnCrearSala
             // 
             this.btnCrearSala.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearSala.Location = new System.Drawing.Point(14, 299);
+            this.btnCrearSala.Location = new System.Drawing.Point(14, 253);
             this.btnCrearSala.Name = "btnCrearSala";
             this.btnCrearSala.Size = new System.Drawing.Size(170, 40);
             this.btnCrearSala.TabIndex = 2;
@@ -141,7 +139,7 @@ namespace Capa_de_Presentacion
             // btnEmpleados
             // 
             this.btnEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmpleados.Location = new System.Drawing.Point(14, 115);
+            this.btnEmpleados.Location = new System.Drawing.Point(14, 69);
             this.btnEmpleados.Name = "btnEmpleados";
             this.btnEmpleados.Size = new System.Drawing.Size(170, 40);
             this.btnEmpleados.TabIndex = 1;
@@ -152,7 +150,7 @@ namespace Capa_de_Presentacion
             // btnReportes
             // 
             this.btnReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportes.Location = new System.Drawing.Point(14, 253);
+            this.btnReportes.Location = new System.Drawing.Point(14, 207);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(170, 40);
             this.btnReportes.TabIndex = 0;
@@ -162,7 +160,7 @@ namespace Capa_de_Presentacion
             // btnVentas
             // 
             this.btnVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVentas.Location = new System.Drawing.Point(14, 207);
+            this.btnVentas.Location = new System.Drawing.Point(14, 161);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(170, 40);
             this.btnVentas.TabIndex = 0;
@@ -173,24 +171,13 @@ namespace Capa_de_Presentacion
             // btnUsuarios
             // 
             this.btnUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUsuarios.Location = new System.Drawing.Point(14, 161);
+            this.btnUsuarios.Location = new System.Drawing.Point(14, 115);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(170, 40);
             this.btnUsuarios.TabIndex = 0;
             this.btnUsuarios.Text = "&Usuarios";
             this.btnUsuarios.UseVisualStyleBackColor = true;
             this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
-            // 
-            // btnClientes
-            // 
-            this.btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClientes.Location = new System.Drawing.Point(14, 69);
-            this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(170, 40);
-            this.btnClientes.TabIndex = 0;
-            this.btnClientes.Text = "&Clientes";
-            this.btnClientes.UseVisualStyleBackColor = true;
-            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // btnProductos
             // 
@@ -304,7 +291,6 @@ namespace Capa_de_Presentacion
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Button btnUsuarios;
-        private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnProductos;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblUsuario;

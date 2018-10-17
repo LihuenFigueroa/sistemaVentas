@@ -42,12 +42,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnBusqueda = new System.Windows.Forms.Button();
-            this.txtDocIdentidad = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtDatos = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtIgv = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -76,12 +70,17 @@
             this.btnRegistrarVenta = new System.Windows.Forms.Button();
             this.btnEliminarItem = new System.Windows.Forms.Button();
             this.txtIdProducto = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblDni = new System.Windows.Forms.Label();
+            this.lblEmpleado = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -211,69 +210,6 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(168, 21);
             this.dateTimePicker1.TabIndex = 0;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnBusqueda);
-            this.groupBox3.Controls.Add(this.txtDocIdentidad);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.txtDatos);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(12, 71);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(413, 82);
-            this.groupBox3.TabIndex = 8;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Cliente";
-            // 
-            // btnBusqueda
-            // 
-            this.btnBusqueda.Location = new System.Drawing.Point(294, 22);
-            this.btnBusqueda.Name = "btnBusqueda";
-            this.btnBusqueda.Size = new System.Drawing.Size(93, 23);
-            this.btnBusqueda.TabIndex = 4;
-            this.btnBusqueda.Text = "Buscar";
-            this.btnBusqueda.UseVisualStyleBackColor = true;
-            this.btnBusqueda.Click += new System.EventHandler(this.btnBusqueda_Click);
-            // 
-            // txtDocIdentidad
-            // 
-            this.txtDocIdentidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDocIdentidad.Location = new System.Drawing.Point(116, 23);
-            this.txtDocIdentidad.Name = "txtDocIdentidad";
-            this.txtDocIdentidad.ReadOnly = true;
-            this.txtDocIdentidad.Size = new System.Drawing.Size(172, 21);
-            this.txtDocIdentidad.TabIndex = 3;
-            this.txtDocIdentidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 23);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 16);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Doc. Identidad:";
-            // 
-            // txtDatos
-            // 
-            this.txtDatos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDatos.Location = new System.Drawing.Point(65, 50);
-            this.txtDatos.Name = "txtDatos";
-            this.txtDatos.ReadOnly = true;
-            this.txtDatos.Size = new System.Drawing.Size(322, 21);
-            this.txtDatos.TabIndex = 1;
-            this.txtDatos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Sr (a):";
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.txtIgv);
@@ -291,7 +227,7 @@
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(12, 159);
+            this.groupBox4.Location = new System.Drawing.Point(9, 166);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(624, 92);
             this.groupBox4.TabIndex = 9;
@@ -383,7 +319,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 59);
+            this.label8.Location = new System.Drawing.Point(9, 60);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 16);
             this.label8.TabIndex = 4;
@@ -441,7 +377,7 @@
             this.Column5,
             this.Column6});
             this.dataGridView1.GridColor = System.Drawing.Color.DimGray;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 267);
+            this.dataGridView1.Location = new System.Drawing.Point(9, 263);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(625, 211);
             this.dataGridView1.TabIndex = 14;
@@ -551,11 +487,67 @@
             this.txtIdProducto.Size = new System.Drawing.Size(51, 20);
             this.txtIdProducto.TabIndex = 21;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lblDni);
+            this.groupBox3.Controls.Add(this.lblEmpleado);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(8, 68);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(415, 100);
+            this.groupBox3.TabIndex = 22;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Datos Mesa";
+            // 
+            // lblDni
+            // 
+            this.lblDni.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDni.Location = new System.Drawing.Point(163, 61);
+            this.lblDni.Name = "lblDni";
+            this.lblDni.Size = new System.Drawing.Size(143, 21);
+            this.lblDni.TabIndex = 8;
+            this.lblDni.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblEmpleado
+            // 
+            this.lblEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEmpleado.Location = new System.Drawing.Point(163, 30);
+            this.lblEmpleado.Name = "lblEmpleado";
+            this.lblEmpleado.Size = new System.Drawing.Size(49, 21);
+            this.lblEmpleado.TabIndex = 6;
+            this.lblEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Cantidad Personas";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(21, 31);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(96, 16);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Numero Mesa:";
+            // 
             // FrmRegistroVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 515);
+            this.
+                
+                
+                
+                
+                ntSize = new System.Drawing.Size(649, 515);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.txtIdProducto);
             this.Controls.Add(this.btnEliminarItem);
             this.Controls.Add(this.btnRegistrarVenta);
@@ -563,7 +555,6 @@
             this.Controls.Add(this.txtIdVenta);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
@@ -580,11 +571,11 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -604,12 +595,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox txtDatos;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnBusqueda;
-        private System.Windows.Forms.TextBox txtDocIdentidad;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnBusquedaProducto;
         private System.Windows.Forms.Button btnAgregar;
@@ -638,5 +623,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.GroupBox groupBox3;
+        public System.Windows.Forms.Label lblDni;
+        public System.Windows.Forms.Label lblEmpleado;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label11;
     }
 }

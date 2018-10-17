@@ -111,13 +111,7 @@ namespace Capa_de_Presentacion
         {
             FrmListadoProductos P = new FrmListadoProductos();
             P.Show();
-        }
-
-        private void btnClientes_Click(object sender, EventArgs e)
-        {
-            FrmListadoClientes C = new FrmListadoClientes();
-            C.Show();
-        }
+        }      
 
         private void btnVentas_Click(object sender, EventArgs e)
         {

@@ -191,11 +191,9 @@ C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de V
 C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Debug\Capa_de_Presentacion.FrmRegistrarCargo.resources
 C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Debug\Capa_de_Presentacion.FrmRegistrarCategoria.resources
 C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Debug\Capa_de_Presentacion.FrmListadoCategoria.resources
-C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Debug\Capa_de_Presentacion.FrmListadoClientes.resources
 C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Debug\Capa_de_Presentacion.FrmListadoProductos.resources
 C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Debug\Capa_de_Presentacion.FrmRegistrarEmpleados.resources
 C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Debug\Capa_de_Presentacion.FrmRegistrarUsuarios.resources
-C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Debug\Capa_de_Presentacion.FrmRegistroCliente.resources
 C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Debug\Capa_de_Presentacion.FrmRegistroProductos.resources
 C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Debug\Capa_de_Presentacion.FrmRegistroVentas.resources
 C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Debug\Capa_de_Presentacion.Properties.Resources.resources

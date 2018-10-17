@@ -61,19 +61,10 @@ namespace Capa_de_Presentacion
             else
                 lblNroCorrelativo.Text = Ventas.NumeroComprobante("Factura");
         }
-
-        private void btnBusqueda_Click(object sender, EventArgs e)
-        {
-            FrmListadoClientes C = new FrmListadoClientes();
-            C.Show();
-        }
-
+      
         private void FrmVentas_Activated(object sender, EventArgs e)
         {
-            //txtIdProducto.Text = Program.IdCliente+"";
-            txtDocIdentidad.Text = Program.DocumentoIdentidad;
-            txtDatos.Text = Program.ApellidosCliente + ", " + Program.NombreCliente;
-            txtIdProducto.Text = Program.IdProducto+"";
+             txtIdProducto.Text = Program.IdProducto+"";
             txtDescripcion.Text = Program.Descripcion;
             txtMarca.Text = Program.Marca;
             txtStock.Text = Program.Stock+"";
@@ -89,8 +80,7 @@ namespace Capa_de_Presentacion
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             clsVenta V = new clsVenta();
-            Decimal Porcentaje = 0; Decimal SubTotal;
-            if(this.txtDocIdentidad.Text.Trim()!=""){
+            Decimal Porcentaje = 0; Decimal SubTotal;            
                 if (txtDescripcion.Text.Trim() != ""){
                     if (txtCantidad.Text.Trim() != ""){
                         if (Convert.ToInt32(txtCantidad.Text) >= 0){
@@ -129,9 +119,7 @@ namespace Capa_de_Presentacion
                 else {
                     DevComponents.DotNetBar.MessageBoxEx.Show("Por Favor Busque el Producto a Vender.", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
-            }else{
-                DevComponents.DotNetBar.MessageBoxEx.Show("Por Favor Busque el Cliente a Vender.", "Sistema de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-            }
+            
         }
 
         private void LlenarGrilla() {
@@ -260,8 +248,7 @@ namespace Capa_de_Presentacion
 			    }
             string TipoDocumento = "";
             TipoDocumento = rbnBoleta.Checked == true ? "Boleta" : "Factura";
-            Ventas.IdEmpleado=Program.IdEmpleadoLogueado;
-            Ventas.IdCliente=Program.IdCliente;
+            Ventas.IdEmpleado=Program.IdEmpleadoLogueado;  
             Ventas.Serie=lblSerie.Text;
             Ventas.NroComprobante=lblNroCorrelativo.Text;
             Ventas.TipoDocumento=TipoDocumento;
@@ -287,38 +274,12 @@ namespace Capa_de_Presentacion
 
         private void Limpiar1() {
             txtIgv.Clear();
-            txtDocIdentidad.Clear();
-            txtDatos.Clear();
             dataGridView1.Rows.Clear();
-            Program.IdEmpleadoLogueado = 0;
-            Program.IdCliente = 0;
+            Program.IdEmpleadoLogueado = 0;           
             txtIdProducto.Clear();
             rbnBoleta.Checked = true;
-            Program.DocumentoIdentidad = "";
-            Program.ApellidosCliente = "";
-            Program.NombreCliente = "";
         }
-        //private void btnQuitar_Click(object sender, EventArgs e)
-        //{
-        //    DialogResult Resultado = new DialogResult();
-        //    Resultado = DevComponents.DotNetBar.MessageBoxEx.Show("¿Está Seguro Que Desea Quitar Este Producto.?", "Sistema de Ventas.", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-        //       if(Resultado==DialogResult.OK){
-        //            try{	        
-        //                foreach (DataGridViewRow row in dataGridView1.Rows)
-        //                {
-        //                    Boolean Activo=Convert.ToBoolean(row.Cells["Eliminar"].Value);
-        //                    if(Activo){
-        //                        for (int i = 0; i < dataGridView1.RowCount; i++)
-        //                        {
-        //                            dataGridView1.Rows.RemoveAt(i);
-        //                        }
-        //                    }
-        //                }
-        //            }catch (Exception ex){
-        //                 DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message);
-        //            }
-        //       }
-        //}
+       
 
     }
 }

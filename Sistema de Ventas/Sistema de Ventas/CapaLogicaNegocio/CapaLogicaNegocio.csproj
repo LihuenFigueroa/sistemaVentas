@@ -61,7 +61,6 @@
   <ItemGroup>
     <Compile Include="clsCargo.cs" />
     <Compile Include="clsCategoria.cs" />
-    <Compile Include="clsCliente.cs" />
     <Compile Include="clsDetalleVenta.cs" />
     <Compile Include="clsEmpleado.cs" />
     <Compile Include="clsMesa.cs" />

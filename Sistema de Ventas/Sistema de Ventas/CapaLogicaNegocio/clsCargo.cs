@@ -5,7 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.Sql
+    
+    
+    
+    
+    nt;
 
 using CapaEnlaceDatos;
 
