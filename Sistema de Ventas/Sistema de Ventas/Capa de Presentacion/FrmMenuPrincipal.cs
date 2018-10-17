@@ -189,6 +189,7 @@ namespace Capa_de_Presentacion
             btnMesa.TabIndex = 27;
             btnMesa.Text = nuevaMesa.GetNumeroMesa().ToString();
             btnMesa.UseVisualStyleBackColor = true;
+            btnMesa.Click += new System.EventHandler(this.btnMesa_Click);
             ControlMoverOrResizer.Init(btnMesa);
             ////////////////////////
             // ASIGNARSELO A LA MESA//

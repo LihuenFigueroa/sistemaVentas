@@ -52,7 +52,7 @@ namespace Capa_de_Presentacion
             GenerarIdVenta();
             GenerarSeriedeDocumento();
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            lblNumeroMesa.Text = id_mesa_actual.ToString();
+            lblNumeroMesa.Text = Mesa.ObtenerNumeroMesaConId(id_mesa_actual).ToString();
             lblCantidadPersonas.Text = Mesa.ObtenerCantidadPersonas(id_mesa_actual).ToString();
         }
 
@@ -286,11 +286,31 @@ namespace Capa_de_Presentacion
         private void Limpiar1() {
             txtIgv.Clear();
             dataGridView1.Rows.Clear();
-            Program.IdEmpleadoLogueado = 0;           
+            //Program.IdEmpleadoLogueado = 0;           
             txtIdProducto.Clear();
             rbnBoleta.Checked = true;
         }
-       
 
+        private void btnCerrarMesa_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            clsVentas ventaAux = new clsVentas();
+            clsMesa mesaAux = new clsMesa();   
+            dt = ventaAux.ObtenerVentas(id_mesa_actual);           
+            //ventaAux.MandarAHistorial(id_mesa_actual);
+            //ventaAux.EliminarVentasMesa(id_mesa_actual);
+            DevComponents.DotNetBar.MessageBoxEx.Show("PASO A HISTORIAL Y ELIMINO DE LA POSTA", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ////////////////////////////////////////////////////////
+            ////////////// IMPRIMIR TICKET FISCAL //////////////////
+            ////////////////////////////////////////////////////////
+
+
+
+
+
+            ////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////
+        }
     }
 }

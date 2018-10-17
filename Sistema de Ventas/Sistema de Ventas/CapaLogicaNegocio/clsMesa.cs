@@ -181,8 +181,8 @@ namespace CapaLogicaNegocio
             // DataTable dt= new DataTable();
             List<clsParametro> lst = new List<clsParametro>();
             lst.Add(new clsParametro("@NumeroMesa", numero_mesa));
-            lst.Add(new clsParametro("@IdMesa", "", SqlDbType.VarChar, ParameterDirection.Output, 100));
-            M.EjecutarSP("ObtenerIdMesa" +"", ref lst);
+            lst.Add(new clsParametro("@IdMesa","", SqlDbType.VarChar, ParameterDirection.Output, 100));
+            M.EjecutarSP("ObtenerIdMesa", ref lst);
             return int.Parse(lst[1].Valor.ToString());
         }
 
@@ -276,5 +276,7 @@ namespace CapaLogicaNegocio
             M.EjecutarSP("ObtenerCantidadPersonas" + "", ref lst);
             return int.Parse(lst[1].Valor.ToString());
         }
+
+
     } 
 }
