@@ -38,6 +38,11 @@ namespace Capa_de_Presentacion
                     panelx.Name = "panelx";
                     panelx.Size = new System.Drawing.Size(947, 426);
                     panelx.TabIndex = 0;
+                    //////////////////////////////////////////////////////////
+                    /// LEVANTAR LAS MESAS EXISTENTES DE LA BASE DE DATOS ////
+                    //////////////////////////////////////////////////////////
+                    
+                    /////////////////////////////////////////////////////////
                     myTabPage.SuspendLayout();
                     panelx.SuspendLayout();
                 }
@@ -55,6 +60,9 @@ namespace Capa_de_Presentacion
                     pnl.ResumeLayout(false);
                 }
             }
+
+
+
 
         }
 
@@ -200,6 +208,25 @@ namespace Capa_de_Presentacion
                     Application.Exit();
                 }
             }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+             foreach (System.Windows.Forms.Panel pnl in this.tabControl1.SelectedTab.Controls)
+                {
+                    //DENRO DEL PANEL, TENGO QUE ITERAR POR TODOS LOS BOTONES//
+                    foreach (System.Windows.Forms.Button btn in pnl.Controls)
+                    {
+                    String numeroMesa = btn.Text;
+                    clsMesa mesaActual = new clsMesa();
+                    int posX=btn.Location.X;
+                    int posY=btn.Location.Y;
+                    int ancho = btn.Size.Width;
+                    int alto = btn.Size.Height;                                      
+                    mesaActual.ActualizarDimYPos(numeroMesa,posX,posY,ancho,alto);
+                    }
+                }
+            
         }
     }
 }

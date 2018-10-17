@@ -23,6 +23,10 @@ namespace CapaLogicaNegocio
         private char esperaCuenta;
         private char combinada;
         private Button botonMesa;
+        private int posX;
+        private int posY;
+        private int ancho;
+        private int alto;
 
 
 
@@ -74,6 +78,51 @@ namespace CapaLogicaNegocio
         public void SetBotonMesa(Button btn_mesa)
         { this.botonMesa = btn_mesa; }
 
+        public int GetPosX()
+        {
+            return this.posX;
+        }
+
+        public void SetPosX(int posX)
+        {
+            this.posX = posX;
+        }
+
+        public int GetPosY()
+        {
+            return this.posY;
+        }
+
+        public void SetPosY(int posY)
+        {
+            this.posY = posY;
+        }
+
+        public void SetPosition(int posX,int posY)
+        {
+            this.posX = posX;
+            this.posY = posY;
+        }
+
+        public int GetAncho()
+        {
+            return this.ancho;
+        }
+
+        public void SetAncho(int ancho) {
+            this.ancho = ancho;
+        }
+
+        public int GetAlto()
+        {
+            return this.alto;
+        }
+
+        public void SetAlto(int alto)
+        {
+            this.alto = alto;
+        }
+    
 
         ////////////////////---METODOS---///////////////////////////
 
@@ -90,6 +139,10 @@ namespace CapaLogicaNegocio
                 lst.Add(new clsParametro("@Libre", this.libre));
                 lst.Add(new clsParametro("@EsperaCuenta", this.esperaCuenta));
                 lst.Add(new clsParametro("@Combinada", this.combinada));
+                lst.Add(new clsParametro("@PosX", this.posX));
+                lst.Add(new clsParametro("@PosY", this.posY));
+                lst.Add(new clsParametro("@Ancho", this.ancho));
+                lst.Add(new clsParametro("@Alto", this.alto));
                 lst.Add(new clsParametro("@Mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
                 M.EjecutarSP("RegistrarMesa", ref lst);
                 mensaje = lst[7].Valor.ToString();
@@ -126,6 +179,28 @@ namespace CapaLogicaNegocio
             lst.Add(new clsParametro("@NumeroMesa", "", SqlDbType.VarChar, ParameterDirection.Output, 100));
             M.EjecutarSP("ObtenerNumeroMesa", ref lst);
             return int.Parse(lst[0].Valor.ToString());
+        }
+
+        public int ObtenerIdMesa(int numero_mesa)
+        {
+            // DataTable dt= new DataTable();
+            List<clsParametro> lst = new List<clsParametro>();
+            lst.Add(new clsParametro("@NumeroMesa", numero_mesa));
+            lst.Add(new clsParametro("@IdMesa", "", SqlDbType.VarChar, ParameterDirection.Output, 100));
+            M.EjecutarSP("ObtenerIdMesa" +
+                "", ref lst);
+            return int.Parse(lst[1].Valor.ToString());
+        }
+
+        public void ActualizarDimYPos(String numero_mesa,int posX,int posY, int ancho, int alto)
+        {
+            List<clsParametro> lst = new List<clsParametro>();
+            lst.Add(new clsParametro("IdMesa",this.ObtenerIdMesa(int.Parse(numero_mesa))));
+            lst.Add(new clsParametro("PosX",posX));
+            lst.Add(new clsParametro("PosY", posY));
+            lst.Add(new clsParametro("Ancho",ancho));
+            lst.Add(new clsParametro("Alto", alto));
+            M.EjecutarSP("ActualizarDimYPos",ref lst);
         }
     } 
 }
