@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -241,6 +241,7 @@
             this.txtIgv.Name = "txtIgv";
             this.txtIgv.Size = new System.Drawing.Size(39, 21);
             this.txtIgv.TabIndex = 13;
+            this.txtIgv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIgv_KeyPress);
             // 
             // label12
             // 
@@ -273,16 +274,17 @@
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(339, 57);
+            this.txtCantidad.Location = new System.Drawing.Point(339, 60);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(69, 21);
             this.txtCantidad.TabIndex = 9;
             this.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(274, 59);
+            this.label10.Location = new System.Drawing.Point(269, 62);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 16);
             this.label10.TabIndex = 8;
@@ -291,7 +293,7 @@
             // txtPVenta
             // 
             this.txtPVenta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPVenta.Location = new System.Drawing.Point(188, 57);
+            this.txtPVenta.Location = new System.Drawing.Point(188, 60);
             this.txtPVenta.Name = "txtPVenta";
             this.txtPVenta.ReadOnly = true;
             this.txtPVenta.Size = new System.Drawing.Size(75, 21);
@@ -301,7 +303,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(127, 59);
+            this.label9.Location = new System.Drawing.Point(127, 62);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(61, 16);
             this.label9.TabIndex = 6;
@@ -310,7 +312,7 @@
             // txtStock
             // 
             this.txtStock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtStock.Location = new System.Drawing.Point(55, 58);
+            this.txtStock.Location = new System.Drawing.Point(58, 60);
             this.txtStock.Name = "txtStock";
             this.txtStock.ReadOnly = true;
             this.txtStock.Size = new System.Drawing.Size(63, 21);
@@ -320,7 +322,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 60);
+            this.label8.Location = new System.Drawing.Point(10, 64);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 16);
             this.label8.TabIndex = 4;
@@ -408,9 +410,9 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column4.HeaderText = "P. UNIT.";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -418,9 +420,9 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Format = "C2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column3.HeaderText = "IMPORTE";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;

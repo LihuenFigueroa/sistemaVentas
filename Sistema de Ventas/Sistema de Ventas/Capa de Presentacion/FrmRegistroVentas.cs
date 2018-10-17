@@ -194,7 +194,7 @@ namespace Capa_de_Presentacion
             txtStock.Clear();
             txtPVenta.Clear();
             txtCantidad.Clear();
-            txtCantidad.Focus();
+            btnBusquedaProducto.Focus();
             Program.Descripcion = "";
             Program.Stock = 0;
             Program.Marca = "";
@@ -341,6 +341,18 @@ namespace Capa_de_Presentacion
             ////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+                this.btnAgregar_Click(sender, e);
+        }
+
+        private void txtIgv_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+                this.btnAgregar_Click(sender,e);
         }
     }
 }
