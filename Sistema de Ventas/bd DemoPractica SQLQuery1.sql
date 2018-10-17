@@ -88,6 +88,7 @@ SubTotal Money Not Null
 )
 Go
 
+
 Create Table Usuario
 (IdUsuario Int Identity Primary Key,
 IdEmpleado Int Not Null References Empleado,

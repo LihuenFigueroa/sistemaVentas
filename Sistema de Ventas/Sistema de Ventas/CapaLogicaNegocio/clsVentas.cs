@@ -86,20 +86,20 @@ namespace CapaLogicaNegocio
             List<clsParametro> lst = new List<clsParametro>();
             lst.Add(new clsParametro("@IdMesa", id_mesa));
             return M.Listado("ObtenerVentas", lst);
-        }
-
-        public void MandarAHistorial(int id_mesa)
-        {
-            List<clsParametro> lst = new List<clsParametro>();
-            lst.Add(new clsParametro("@IdMesa", id_mesa));
-            M.EjecutarSP("MandarAHistorial",ref lst);
-        }
+        }       
 
         public void EliminarVentasMesa(int id_mesa)
         {
             List<clsParametro> lst = new List<clsParametro>();
             lst.Add(new clsParametro("@IdMesa", id_mesa));
             M.EjecutarSP("EliminarVentasMesa",ref lst);
+        }
+
+        public DataTable ObtenerDetallesVentas(int id_mesa)
+        {
+            List<clsParametro> lst = new List<clsParametro>();
+            lst.Add(new clsParametro("@IdMesa",id_mesa));
+            return M.Listado("ObtenerDetallesVentas",lst);
         }
     }
 }

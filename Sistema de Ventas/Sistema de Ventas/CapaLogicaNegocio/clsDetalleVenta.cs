@@ -37,5 +37,19 @@ namespace CapaLogicaNegocio
            }
            return Mensaje;
        }
+
+        public void MandarAlHistorial(int id_mesa)
+        {
+            List<clsParametro> lst = new List<clsParametro>();
+            lst.Add(new clsParametro("@IdMesa", id_mesa));
+            M.EjecutarSP("MandarAlHistorial", ref lst);
+        }
+
+        public void EliminarDetallesVentas(int id_mesa)
+        {
+            List<clsParametro> lst = new List<clsParametro>();
+            lst.Add(new clsParametro("@IdMesa", id_mesa));
+            M.EjecutarSP("EliminarDetallesVentas", ref lst);
+        }
     }
 }

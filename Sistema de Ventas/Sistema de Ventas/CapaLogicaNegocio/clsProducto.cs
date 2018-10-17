@@ -24,9 +24,10 @@ namespace CapaLogicaNegocio
         private Decimal m_PrecioVenta;
         private DateTime m_FechaVencimiento;
 
-        public Int32 IdP{
+        public Int32 IdP
+        {
             get { return m_IdP; }
-            set{m_IdP=value;}
+            set { m_IdP = value; }
         }
 
         public Int32 IdCategoria
@@ -76,7 +77,8 @@ namespace CapaLogicaNegocio
             return M.Listado("ListadoProductos", null);
         }
 
-        public DataTable BusquedaProductos(String objDatos) {
+        public DataTable BusquedaProductos(String objDatos)
+        {
             DataTable dt = new DataTable();
             List<clsParametro> lst = new List<clsParametro>();
             try
@@ -85,7 +87,7 @@ namespace CapaLogicaNegocio
                 dt = M.Listado("FiltrarDatosProducto", lst);
             }
             catch (Exception ex)
-            {    
+            {
                 throw ex;
             }
             return dt;
@@ -123,7 +125,7 @@ namespace CapaLogicaNegocio
 
             try
             {
-                lst.Add(new clsParametro("@IdProducto",m_IdP));
+                lst.Add(new clsParametro("@IdProducto", m_IdP));
                 lst.Add(new clsParametro("@IdCategoria", m_IdCategoria));
                 lst.Add(new clsParametro("@Nombre", m_Producto));
                 lst.Add(new clsParametro("@Marca", m_Marca));
@@ -140,6 +142,41 @@ namespace CapaLogicaNegocio
                 throw ex;
             }
             return Mensaje;
+        }
+
+        public String ObtenerNombre(int id_producto)
+        {
+            String nombre = "";
+            List<clsParametro> lst = new List<clsParametro>();
+            try
+            {
+                lst.Add(new clsParametro("@IdProducto", id_producto));
+                lst.Add(new clsParametro("@Nombre", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+                M.EjecutarSP("ObtenerNombre", ref lst);
+                nombre = lst[1].Valor.ToString();
+            }
+            catch (SystemException e)
+            {
+                throw e;
+            }
+            return nombre;
+        }
+        public String ObtenerMarca(int id_producto)
+        {
+            String nombre = "";
+            List<clsParametro> lst = new List<clsParametro>();
+            try
+            {
+                lst.Add(new clsParametro("@IdProducto", id_producto));
+                lst.Add(new clsParametro("@Marca", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+                M.EjecutarSP("ObtenerMarca", ref lst);
+                nombre = lst[1].Valor.ToString();
+            }
+            catch (SystemException e)
+            {
+                throw e;
+            }
+            return nombre;
         }
     }
 }

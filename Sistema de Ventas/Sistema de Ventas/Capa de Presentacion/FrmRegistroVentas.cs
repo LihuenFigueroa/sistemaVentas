@@ -54,6 +54,29 @@ namespace Capa_de_Presentacion
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             lblNumeroMesa.Text = Mesa.ObtenerNumeroMesaConId(id_mesa_actual).ToString();
             lblCantidadPersonas.Text = Mesa.ObtenerCantidadPersonas(id_mesa_actual).ToString();
+            //////////////////////////////////////////////////////////////////
+            
+            clsVentas ventaAux = new clsVentas();
+            DataTable dt = new DataTable();
+            clsVenta detalleVentaAux=new clsVenta();
+            clsProducto productoAux = new clsProducto();
+            dt = ventaAux.ObtenerDetallesVentas(id_mesa_actual);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Decimal Porcentaje = 0; Decimal SubTotal;
+                detalleVentaAux.IdProducto = Convert.ToInt32(dt.Rows[i][1].ToString());
+                detalleVentaAux.IdVenta = Convert.ToInt32(dt.Rows[i][2].ToString());
+                detalleVentaAux.Descripcion = productoAux.ObtenerNombre(detalleVentaAux.IdProducto) + " - " + productoAux.ObtenerMarca(detalleVentaAux.IdProducto);
+                detalleVentaAux.Cantidad = Convert.ToInt32(dt.Rows[i][3].ToString());
+                detalleVentaAux.PrecioVenta = Convert.ToDecimal(dt.Rows[i][4].ToString());
+                Porcentaje = (Convert.ToDecimal(dt.Rows[i][5].ToString()) / 100) + 1;
+                SubTotal = ((Convert.ToDecimal(dt.Rows[i][4].ToString()) * Convert.ToInt32(dt.Rows[i][3].ToString())) / Porcentaje);
+                detalleVentaAux.Igv = Math.Round(Convert.ToDecimal(SubTotal) * (Convert.ToDecimal(dt.Rows[i][5].ToString()) / (100)), 2);
+                detalleVentaAux.SubTotal = Math.Round(SubTotal, 2);
+                lst.Add(detalleVentaAux);               
+            }
+            //////////////////////////////////////////////////////////////////
+            LlenarGrilla();
         }
 
         private void GenerarIdVenta() {
@@ -293,13 +316,11 @@ namespace Capa_de_Presentacion
 
         private void btnCerrarMesa_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            clsVentas ventaAux = new clsVentas();
-            clsMesa mesaAux = new clsMesa();   
-            dt = ventaAux.ObtenerVentas(id_mesa_actual);           
-            //ventaAux.MandarAHistorial(id_mesa_actual);
-            //ventaAux.EliminarVentasMesa(id_mesa_actual);
-            DevComponents.DotNetBar.MessageBoxEx.Show("PASO A HISTORIAL Y ELIMINO DE LA POSTA", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            clsDetalleVenta detalleVentaAux = new clsDetalleVenta();
+            detalleVentaAux.MandarAlHistorial(id_mesa_actual);
+            detalleVentaAux.EliminarDetallesVentas(id_mesa_actual);
+            DevComponents.DotNetBar.MessageBoxEx.Show("Se cerro la mesa con exito", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             ////////////////////////////////////////////////////////
             ////////////// IMPRIMIR TICKET FISCAL //////////////////
             ////////////////////////////////////////////////////////
