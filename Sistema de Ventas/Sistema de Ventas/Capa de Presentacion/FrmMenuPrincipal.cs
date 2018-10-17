@@ -265,7 +265,7 @@ namespace Capa_de_Presentacion
                     }
                     break;    
                 case "1":
-                    FrmRegistroVentas frv = new FrmRegistroVentas();
+                    FrmRegistroVentas frv = new FrmRegistroVentas(id_mesa);
                     frv.Show();
 
                     break;

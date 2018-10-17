@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -71,8 +71,8 @@
             this.btnEliminarItem = new System.Windows.Forms.Button();
             this.txtIdProducto = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lblDni = new System.Windows.Forms.Label();
-            this.lblEmpleado = new System.Windows.Forms.Label();
+            this.lblCantidadPersonas = new System.Windows.Forms.Label();
+            this.lblNumeroMesa = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -407,9 +407,9 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column4.HeaderText = "P. UNIT.";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -417,9 +417,9 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column3.HeaderText = "IMPORTE";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -489,35 +489,35 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.lblDni);
-            this.groupBox3.Controls.Add(this.lblEmpleado);
+            this.groupBox3.Controls.Add(this.lblCantidadPersonas);
+            this.groupBox3.Controls.Add(this.lblNumeroMesa);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(8, 68);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(415, 100);
+            this.groupBox3.Size = new System.Drawing.Size(409, 92);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos Mesa";
             // 
-            // lblDni
+            // lblCantidadPersonas
             // 
-            this.lblDni.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblDni.Location = new System.Drawing.Point(163, 61);
-            this.lblDni.Name = "lblDni";
-            this.lblDni.Size = new System.Drawing.Size(143, 21);
-            this.lblDni.TabIndex = 8;
-            this.lblDni.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCantidadPersonas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCantidadPersonas.Location = new System.Drawing.Point(163, 61);
+            this.lblCantidadPersonas.Name = "lblCantidadPersonas";
+            this.lblCantidadPersonas.Size = new System.Drawing.Size(143, 21);
+            this.lblCantidadPersonas.TabIndex = 8;
+            this.lblCantidadPersonas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblEmpleado
+            // lblNumeroMesa
             // 
-            this.lblEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblEmpleado.Location = new System.Drawing.Point(163, 30);
-            this.lblEmpleado.Name = "lblEmpleado";
-            this.lblEmpleado.Size = new System.Drawing.Size(49, 21);
-            this.lblEmpleado.TabIndex = 6;
-            this.lblEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNumeroMesa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblNumeroMesa.Location = new System.Drawing.Point(163, 30);
+            this.lblNumeroMesa.Name = "lblNumeroMesa";
+            this.lblNumeroMesa.Size = new System.Drawing.Size(49, 21);
+            this.lblNumeroMesa.TabIndex = 6;
+            this.lblNumeroMesa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -541,12 +541,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.
-                
-                
-                
-                
-                ntSize = new System.Drawing.Size(649, 515);
+            this.ClientSize = new System.Drawing.Size(649, 515);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.txtIdProducto);
             this.Controls.Add(this.btnEliminarItem);
@@ -624,8 +619,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.GroupBox groupBox3;
-        public System.Windows.Forms.Label lblDni;
-        public System.Windows.Forms.Label lblEmpleado;
+        public System.Windows.Forms.Label lblCantidadPersonas;
+        public System.Windows.Forms.Label lblNumeroMesa;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label11;
     }

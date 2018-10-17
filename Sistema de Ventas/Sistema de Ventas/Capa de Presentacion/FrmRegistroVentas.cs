@@ -17,13 +17,21 @@ namespace Capa_de_Presentacion
     {
         clsVentas Ventas = new clsVentas();
         clsDetalleVenta Detalle = new clsDetalleVenta();
-
+        clsMesa Mesa = new clsMesa();
+        public int id_mesa_actual;
         private List<clsVenta> lst = new List<clsVenta>();
+
+        public FrmRegistroVentas(int id_mesa)
+        {
+            InitializeComponent();
+            id_mesa_actual = id_mesa;
+        }
 
         public FrmRegistroVentas()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
+
 
         private void rbnFactura_CheckedChanged(object sender, EventArgs e)
         {
@@ -44,6 +52,8 @@ namespace Capa_de_Presentacion
             GenerarIdVenta();
             GenerarSeriedeDocumento();
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            lblNumeroMesa.Text = id_mesa_actual.ToString();
+            lblCantidadPersonas.Text = Mesa.ObtenerCantidadPersonas(id_mesa_actual).ToString();
         }
 
         private void GenerarIdVenta() {
@@ -87,7 +97,7 @@ namespace Capa_de_Presentacion
                             if (Convert.ToInt32(txtCantidad.Text) <= Convert.ToInt32(txtStock.Text)){
                                 if (txtIgv.Text.Trim() != ""){
                                     V.IdProducto = Convert.ToInt32(txtIdProducto.Text);
-                                    V.IdVenta = Convert.ToInt32(txtIdVenta.Text);
+                                    V.IdVenta = Convert.ToInt32(txtIdVenta.Text);                                      
                                     V.Descripcion = txtDescripcion.Text + " - " + txtMarca.Text;
                                     V.Cantidad = Convert.ToInt32(txtCantidad.Text);
                                     V.PrecioVenta = Convert.ToDecimal(txtPVenta.Text);
@@ -248,7 +258,8 @@ namespace Capa_de_Presentacion
 			    }
             string TipoDocumento = "";
             TipoDocumento = rbnBoleta.Checked == true ? "Boleta" : "Factura";
-            Ventas.IdEmpleado=Program.IdEmpleadoLogueado;  
+            Ventas.IdEmpleado=Program.IdEmpleadoLogueado;
+            Ventas.IdMesa = id_mesa_actual;
             Ventas.Serie=lblSerie.Text;
             Ventas.NroComprobante=lblNroCorrelativo.Text;
             Ventas.TipoDocumento=TipoDocumento;

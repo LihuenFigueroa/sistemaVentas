@@ -102,7 +102,8 @@ Go
 Create Proc FiltrarDatosProducto
 @Datos Varchar(50)
 As Begin
-	Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,PrecioVenta,Stock,FechaVencimiento 
+	Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,Precio
+	a,Stock,FechaVencimiento 
 	From Producto where Nombre=@Datos or Marca=@Datos or Nombre+' '+Marca=@Datos
 End
 Go

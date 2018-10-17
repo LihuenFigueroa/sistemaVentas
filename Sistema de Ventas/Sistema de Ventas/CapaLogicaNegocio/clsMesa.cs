@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using System.Data.Sql
-    
-    nt;
+using System.Data.SqlClient;
 using CapaEnlaceDatos;
 using System.Windows.Forms;
 
@@ -268,6 +266,15 @@ namespace CapaLogicaNegocio
                 throw ex;
             }
 
+        }
+
+        public int ObtenerCantidadPersonas(int id_mesa)
+        {
+            List<clsParametro> lst = new List<clsParametro>();
+            lst.Add(new clsParametro("@IdMesa", id_mesa));
+            lst.Add(new clsParametro("@CantComensales", "", SqlDbType.VarChar, ParameterDirection.Output, 100));
+            M.EjecutarSP("ObtenerCantidadPersonas" + "", ref lst);
+            return int.Parse(lst[1].Valor.ToString());
         }
     } 
 }

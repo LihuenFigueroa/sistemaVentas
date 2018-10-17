@@ -13,7 +13,8 @@ namespace CapaLogicaNegocio
     {
        clsManejador M = new clsManejador();
 
-       public int IdEmpleado { get; set; }      
+       public int IdEmpleado { get; set; }
+       public int IdMesa { get; set; }
        public string Serie { get; set; }
        public string NroComprobante { get; set; }
        public string TipoDocumento { get; set; }
@@ -65,7 +66,8 @@ namespace CapaLogicaNegocio
            String Mensaje = "";
            List<clsParametro> lst = new List<clsParametro>();
            try{
-               lst.Add(new clsParametro("@IdEmpleado",IdEmpleado)); 
+               lst.Add(new clsParametro("@IdEmpleado",IdEmpleado));
+               lst.Add(new clsParametro("@IdMesa", IdMesa));
                lst.Add(new clsParametro("@Serie",Serie));
                lst.Add(new clsParametro("@NroDocumento",NroComprobante));
                lst.Add(new clsParametro("@TipoDocumento",TipoDocumento));
