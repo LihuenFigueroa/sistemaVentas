@@ -32,7 +32,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
-            this.cantidadPersonas = new System.Windows.Forms.TextBox();           
+            this.cantidadPersonas = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -45,7 +45,6 @@
             this.label1.Size = new System.Drawing.Size(142, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cantidad de Personas";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // groupBox1
             // 
@@ -68,9 +67,11 @@
             this.button3.TabIndex = 19;
             this.button3.Text = "&Cancelar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnGrabar
             // 
+            this.btnGrabar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnGrabar.Location = new System.Drawing.Point(23, 62);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 29);
@@ -87,7 +88,7 @@
             this.cantidadPersonas.Size = new System.Drawing.Size(129, 21);
             this.cantidadPersonas.TabIndex = 1;
             this.cantidadPersonas.TextChanged += new System.EventHandler(this.cantidadPersonas_TextChanged);
-            this.cantidadPersonas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cantidadPersonas_KeyPress);     
+            this.cantidadPersonas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cantidadPersonas_KeyPress);
             // 
             // FrmOcuparMesa
             // 
@@ -100,11 +101,10 @@
             this.MaximizeBox = false;
             this.Name = "FrmOcuparMesa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Nueva Mesa";           
+            this.Text = "Mesa";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

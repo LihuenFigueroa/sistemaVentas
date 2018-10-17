@@ -61,7 +61,8 @@ namespace Capa_de_Presentacion
                         btnMesa.UseVisualStyleBackColor = true;
                         ControlMoverOrResizer.Init(btnMesa);
                         fil++;
-                        panelx.Controls.Add(btnMesa);                       
+                        panelx.Controls.Add(btnMesa);
+                        btnMesa.Click += new System.EventHandler(this.btnMesa_Click);
                     }
                     /////////////////////////////////////////////////////////
                     myTabPage.SuspendLayout();
@@ -248,5 +249,27 @@ namespace Capa_de_Presentacion
                 }
             
         }
+
+        private void btnMesa_Click(object sender, EventArgs e)
+        {
+
+            Button mesaClickeada = sender as Button;
+            clsMesa mesaActual = new clsMesa();
+            int id_mesa = mesaActual.ObtenerIdMesa(int.Parse(mesaClickeada.Text));
+
+            FrmOcuparMesa fom = new FrmOcuparMesa();
+            DialogResult res = fom.ShowDialog(); //Llamamos nuestra ventana hija a manera de DialogResult
+            string cantComensales2;
+            if (res == DialogResult.OK) //Nos debe regresar un Dialogresult.OK
+            {
+                cantComensales2 = fom.cantComensales; //Y listo, nos traermos la informacion                
+                mesaActual.OcuparMesa(id_mesa, cantComensales2);
+                mesaClickeada.BackgroundImage = global::Capa_de_Presentacion.Properties.Resources.mesa_ocupada;
+            }
+            
+
+
+        }
+
     }
 }
