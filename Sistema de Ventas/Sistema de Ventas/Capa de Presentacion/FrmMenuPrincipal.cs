@@ -41,7 +41,28 @@ namespace Capa_de_Presentacion
                     //////////////////////////////////////////////////////////
                     /// LEVANTAR LAS MESAS EXISTENTES DE LA BASE DE DATOS ////
                     //////////////////////////////////////////////////////////
-                    
+                    int fil = 0;                  
+                    DataTable dt2 = new DataTable();
+                    clsSala salaActual = new clsSala();
+                    dt2 = salaActual.ObtenerMesas(dt.Rows[i][1].ToString());
+                    int cantidadMesas = dt2.Rows.Count;
+                    clsMesa mesaActual = new clsMesa();
+                    for (int j = 0; j < cantidadMesas; j++)
+                    {
+                        System.Windows.Forms.Button btnMesa = new System.Windows.Forms.Button();
+                        btnMesa.AutoSize = true;
+                        btnMesa.BackgroundImage = global::Capa_de_Presentacion.Properties.Resources.mesa_libre;
+                        btnMesa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+                        btnMesa.Font = new System.Drawing.Font("Lucida Fax", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                        btnMesa.Location = new System.Drawing.Point(mesaActual.ObtenerPosX(int.Parse(dt2.Rows[fil][0].ToString())), mesaActual.ObtenerPosY(int.Parse(dt2.Rows[fil][0].ToString())));
+                        btnMesa.Size = new System.Drawing.Size(mesaActual.ObtenerAncho(int.Parse(dt2.Rows[fil][0].ToString())), mesaActual.ObtenerAlto(int.Parse(dt2.Rows[fil][0].ToString())));
+                        btnMesa.Name = "btnMesa";
+                        btnMesa.Text = mesaActual.ObtenerNumeroMesaConId(int.Parse(dt2.Rows[fil][0].ToString())).ToString();
+                        btnMesa.UseVisualStyleBackColor = true;
+                        ControlMoverOrResizer.Init(btnMesa);
+                        fil++;
+                        panelx.Controls.Add(btnMesa);                       
+                    }
                     /////////////////////////////////////////////////////////
                     myTabPage.SuspendLayout();
                     panelx.SuspendLayout();
@@ -49,19 +70,18 @@ namespace Capa_de_Presentacion
             }
             catch (System.Exception e)
             {
-
                 throw e;
             }
+
             foreach (TabPage tbp in tabControl1.TabPages)
             {
                 tbp.ResumeLayout(false);
+
                 foreach (System.Windows.Forms.Panel pnl in tbp.Controls)
                 {
                     pnl.ResumeLayout(false);
                 }
             }
-
-
 
 
         }

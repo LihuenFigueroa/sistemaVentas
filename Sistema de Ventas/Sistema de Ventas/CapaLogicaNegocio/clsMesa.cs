@@ -150,11 +150,6 @@ namespace CapaLogicaNegocio
             catch (Exception e)
             { throw e; }
 
-
-
-
-
-
             return mensaje;
         }
 
@@ -187,8 +182,7 @@ namespace CapaLogicaNegocio
             List<clsParametro> lst = new List<clsParametro>();
             lst.Add(new clsParametro("@NumeroMesa", numero_mesa));
             lst.Add(new clsParametro("@IdMesa", "", SqlDbType.VarChar, ParameterDirection.Output, 100));
-            M.EjecutarSP("ObtenerIdMesa" +
-                "", ref lst);
+            M.EjecutarSP("ObtenerIdMesa" +"", ref lst);
             return int.Parse(lst[1].Valor.ToString());
         }
 
@@ -201,6 +195,52 @@ namespace CapaLogicaNegocio
             lst.Add(new clsParametro("Ancho",ancho));
             lst.Add(new clsParametro("Alto", alto));
             M.EjecutarSP("ActualizarDimYPos",ref lst);
+        }
+
+        public int ObtenerAncho(int id_mesa)
+        {
+            // DataTable dt= new DataTable();
+            List<clsParametro> lst = new List<clsParametro>();
+            lst.Add(new clsParametro("@IdMesa", id_mesa));
+            lst.Add(new clsParametro("@Ancho", "", SqlDbType.VarChar, ParameterDirection.Output, 100));
+            M.EjecutarSP("ObtenerAncho" + "", ref lst);
+            return int.Parse(lst[1].Valor.ToString());
+        }
+        public int ObtenerAlto(int id_mesa)
+        {
+            // DataTable dt= new DataTable();
+            List<clsParametro> lst = new List<clsParametro>();
+            lst.Add(new clsParametro("@IdMesa", id_mesa));
+            lst.Add(new clsParametro("@Alto", "", SqlDbType.VarChar, ParameterDirection.Output, 100));
+            M.EjecutarSP("ObtenerAlto" + "", ref lst);
+            return int.Parse(lst[1].Valor.ToString());
+        }
+        public int ObtenerPosX(int id_mesa)
+        {
+            // DataTable dt= new DataTable();
+            List<clsParametro> lst = new List<clsParametro>();
+            lst.Add(new clsParametro("@IdMesa", id_mesa));
+            lst.Add(new clsParametro("@PosX", "", SqlDbType.VarChar, ParameterDirection.Output, 100));
+            M.EjecutarSP("ObtenerPosX" + "", ref lst);
+            return int.Parse(lst[1].Valor.ToString());
+        }
+        public int ObtenerPosY(int id_mesa)
+        {
+            // DataTable dt= new DataTable();
+            List<clsParametro> lst = new List<clsParametro>();
+            lst.Add(new clsParametro("@IdMesa", id_mesa));
+            lst.Add(new clsParametro("@PosY", "", SqlDbType.VarChar, ParameterDirection.Output, 100));
+            M.EjecutarSP("ObtenerPosY" + "", ref lst);
+            return int.Parse(lst[1].Valor.ToString());
+        }
+        public int ObtenerNumeroMesaConId(int id_mesa)
+        {
+            // DataTable dt= new DataTable();
+            List<clsParametro> lst = new List<clsParametro>();
+            lst.Add(new clsParametro("@IdMesa", id_mesa));
+            lst.Add(new clsParametro("@NumeroMesa", "", SqlDbType.VarChar, ParameterDirection.Output, 100));
+            M.EjecutarSP("ObtenerNumeroMesaConId" + "", ref lst);
+            return int.Parse(lst[1].Valor.ToString());
         }
     } 
 }
