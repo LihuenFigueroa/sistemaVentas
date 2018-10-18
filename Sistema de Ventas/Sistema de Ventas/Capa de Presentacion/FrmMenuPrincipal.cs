@@ -36,7 +36,7 @@ namespace Capa_de_Presentacion
                     panelx.BackColor = System.Drawing.Color.MediumBlue;
                     panelx.Location = new System.Drawing.Point(0, 0);
                     panelx.Name = "panelx";
-                    panelx.Size = new System.Drawing.Size(947, 426);
+                    panelx.Size = new System.Drawing.Size(693, 421);
                     panelx.TabIndex = 0;
                     //////////////////////////////////////////////////////////
                     /// LEVANTAR LAS MESAS EXISTENTES DE LA BASE DE DATOS ////
@@ -157,15 +157,13 @@ namespace Capa_de_Presentacion
             TabPage myTabPage = new TabPage(nombre_solapa);
             myTabPage.Name = nombre_solapa;
             myTabPage.Text = nombre_solapa;
-            this.tabControl1.TabPages.Add(myTabPage);
-            System.Windows.Forms.FlowLayoutPanel flowLayoutPanelx = new System.Windows.Forms.FlowLayoutPanel();
-            myTabPage.Controls.Add(flowLayoutPanelx);
+            this.tabControl1.TabPages.Add(myTabPage);            
             System.Windows.Forms.Panel panelx = new System.Windows.Forms.Panel();
             myTabPage.Controls.Add(panelx);
             panelx.BackColor = System.Drawing.Color.MediumBlue;
             panelx.Location = new System.Drawing.Point(0, 0);
             panelx.Name = "panelx";
-            panelx.Size = new System.Drawing.Size(947, 426);
+            panelx.Size = new System.Drawing.Size(879, 509);
             panelx.TabIndex = 0;          
         }
 
@@ -312,6 +310,11 @@ namespace Capa_de_Presentacion
                     }
                 }
             }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

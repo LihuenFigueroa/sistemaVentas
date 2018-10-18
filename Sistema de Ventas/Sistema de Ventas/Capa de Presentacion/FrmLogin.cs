@@ -53,20 +53,20 @@ namespace Capa_de_Presentacion
                     }
                     else
                         if (Mensaje == "El Nombre de Usuario no Existe.")
-                        {
-                            DevComponents.DotNetBar.MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                            txtUser.Clear();
-                            txtPassword.Clear();
-                            txtUser.Focus();
-                        }
-                        else
-                        {
-                            DevComponents.DotNetBar.MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                        txtUser.Clear();
+                        txtPassword.Clear();
+                        txtUser.Focus();
+                    }
+                    else
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         FrmMenuPrincipal MP = FrmMenuPrincipal.CrearInstancia();
                         RecuperarDatosSesion();
-                            MP.Show();
-                            this.Hide();
-                        }
+                        this.Hide();
+                        MP.Show();
+                    }
                 }else {
                     DevComponents.DotNetBar.MessageBoxEx.Show("Por Favor Ingrese su Contraseña.","Sistema de Ventas.",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     txtPassword.Focus();

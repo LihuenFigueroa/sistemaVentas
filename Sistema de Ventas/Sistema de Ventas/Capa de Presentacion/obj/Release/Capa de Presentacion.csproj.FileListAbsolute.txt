@@ -58,3 +58,9 @@ C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de V
 C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa de Presentacion.csproj.CopyComplete
 C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa de Presentacion.exe
 C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa de Presentacion.pdb
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\bin\Release\Capa de Presentacion.exe.manifest
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\bin\Release\Capa de Presentacion.application
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa_de_Presentacion.FrmBorrarMesa.resources
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa de Presentacion.TrustInfo.xml
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa de Presentacion.exe.manifest
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa de Presentacion.application

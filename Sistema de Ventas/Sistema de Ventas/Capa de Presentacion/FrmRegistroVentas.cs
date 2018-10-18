@@ -320,10 +320,14 @@ namespace Capa_de_Presentacion
 
         private void btnCerrarMesa_Click(object sender, EventArgs e)
         {
-            
-            //int id_venta = lst[0].IdVenta;
+            int id_venta=0;
+            if (lst!=null)
+            {
+               id_venta = lst[0].IdVenta;
+            }
+
             clsVentas ventaAux = new clsVentas();
-            /*int nroTicket = ventaAux.ObtenerNroTicket(id_venta);
+            int nroTicket = ventaAux.ObtenerNroTicket(id_venta);
             ////////////////////////////////////////////////////////
             ////////////// IMPRIMIR TICKET FISCAL //////////////////
             ////////////////////////////////////////////////////////
@@ -360,7 +364,7 @@ namespace Capa_de_Presentacion
             ticket.TextoIzquierda("");
             ticket.TextoCentro("SEGUINOS EN INSTAGRAM @rest.mas58");
             ticket.CortaTicket();
-            ticket.ImprimirTicket("NOMBRE DE LA IMPRESORA");
+            ticket.ImprimirTicket("HASAR SMH/P 441F");
 
 
 
@@ -368,7 +372,7 @@ namespace Capa_de_Presentacion
 
 
 
-    */
+    
 
             ////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////

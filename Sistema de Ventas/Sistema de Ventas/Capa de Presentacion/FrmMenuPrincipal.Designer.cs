@@ -49,10 +49,12 @@ namespace Capa_de_Presentacion
             this.label4 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -204,31 +206,11 @@ namespace Capa_de_Presentacion
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Location = new System.Drawing.Point(218, 120);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(951, 448);
-            this.tabControl1.TabIndex = 26;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Image = global::Capa_de_Presentacion.Properties.Resources.banner1;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1184, 106);
-            this.label1.TabIndex = 0;
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.LawnGreen;
             this.btnGuardar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(218, 574);
+            this.btnGuardar.Location = new System.Drawing.Point(215, 663);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(83, 24);
             this.btnGuardar.TabIndex = 27;
@@ -240,7 +222,7 @@ namespace Capa_de_Presentacion
             // 
             this.btnBorrar.BackColor = System.Drawing.Color.Red;
             this.btnBorrar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrar.Location = new System.Drawing.Point(307, 574);
+            this.btnBorrar.Location = new System.Drawing.Point(304, 663);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(83, 24);
             this.btnBorrar.TabIndex = 28;
@@ -248,12 +230,55 @@ namespace Capa_de_Presentacion
             this.btnBorrar.UseVisualStyleBackColor = false;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label5.Font = new System.Drawing.Font("Cooper Black", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(1176, 106);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(131, 33);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "COCINA";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackgroundImage = global::Capa_de_Presentacion.Properties.Resources.fondo_cocina;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1114, 142);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(256, 515);
+            this.flowLayoutPanel1.TabIndex = 29;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Image = global::Capa_de_Presentacion.Properties.Resources.banner1;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1255, 106);
+            this.label1.TabIndex = 0;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Location = new System.Drawing.Point(218, 120);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(890, 537);
+            this.tabControl1.TabIndex = 26;
+            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1184, 661);
+            this.ClientSize = new System.Drawing.Size(1255, 703);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.tabControl1);
@@ -297,11 +322,13 @@ namespace Capa_de_Presentacion
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnEmpleados;
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button btnCrearSala;
         private clsSala S;
         private Button btnGuardar;
         private Button btnCrearMesa;
         private Button btnBorrar;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Label label5;
+        private TabControl tabControl1;
     }
 }

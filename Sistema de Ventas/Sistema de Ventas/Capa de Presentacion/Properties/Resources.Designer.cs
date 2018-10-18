@@ -143,6 +143,16 @@ namespace Capa_de_Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fondo_cocina {
+            get {
+                object obj = ResourceManager.GetObject("fondo_cocina", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logomas58 {
             get {
                 object obj = ResourceManager.GetObject("Logomas58", resourceCulture);
