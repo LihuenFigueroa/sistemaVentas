@@ -77,7 +77,7 @@
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(13, 38);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(738, 213);
+            this.panel1.Size = new System.Drawing.Size(845, 272);
             this.panel1.TabIndex = 4;
             // 
             // dataGridView1
@@ -97,7 +97,7 @@
             this.FechaVencimiento});
             this.dataGridView1.Location = new System.Drawing.Point(-1, -1);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(738, 174);
+            this.dataGridView1.Size = new System.Drawing.Size(845, 272);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
@@ -170,7 +170,7 @@
             // 
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(676, 257);
+            this.btnCancelar.Location = new System.Drawing.Point(783, 316);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 9;
@@ -181,7 +181,7 @@
             // btnEditar
             // 
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Location = new System.Drawing.Point(571, 257);
+            this.btnEditar.Location = new System.Drawing.Point(678, 316);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 8;
@@ -192,7 +192,7 @@
             // btnNuevo
             // 
             this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.Location = new System.Drawing.Point(462, 257);
+            this.btnNuevo.Location = new System.Drawing.Point(569, 316);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 7;
@@ -208,7 +208,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 291);
+            this.ClientSize = new System.Drawing.Size(870, 340);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);

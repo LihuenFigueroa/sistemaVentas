@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaEnlaceDatos", "CapaEnla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa de Presentacion", "Capa de Presentacion\Capa de Presentacion.csproj", "{F54C7316-903E-4543-840A-9CFB39CF275A}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "+58", "+58\+58.vdproj", "{0EBFCCEF-1B05-4BCC-AECF-06C73AF5DC2C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,8 +33,6 @@ Global
 		{F54C7316-903E-4543-840A-9CFB39CF275A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F54C7316-903E-4543-840A-9CFB39CF275A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F54C7316-903E-4543-840A-9CFB39CF275A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0EBFCCEF-1B05-4BCC-AECF-06C73AF5DC2C}.Debug|Any CPU.ActiveCfg = Debug
-		{0EBFCCEF-1B05-4BCC-AECF-06C73AF5DC2C}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

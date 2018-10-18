@@ -216,6 +216,10 @@ namespace Capa_de_Presentacion
                 else
                 {
                     e.Handled = true;
+                if (e.KeyChar==(char)13)
+                {
+                    btnGuardar_Click(sender,e);
+                }
                 } 
         }
 
