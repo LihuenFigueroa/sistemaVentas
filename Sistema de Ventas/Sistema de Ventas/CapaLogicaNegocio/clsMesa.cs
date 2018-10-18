@@ -131,8 +131,7 @@ namespace CapaLogicaNegocio
             List<clsParametro> lst = new List<clsParametro>();
             String mensaje = "";
             try
-            {
-                lst.Add(new clsParametro("@IdMesa", this.IdMesa));
+            {                
                 lst.Add(new clsParametro("@IdSala", this.IdSala));
                 lst.Add(new clsParametro("@NumeroMesa", this.numeroMesa));
                 lst.Add(new clsParametro("@CantComensales", this.cantComensales));
@@ -145,11 +144,10 @@ namespace CapaLogicaNegocio
                 lst.Add(new clsParametro("@Alto", this.alto));
                 lst.Add(new clsParametro("@Mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
                 M.EjecutarSP("RegistrarMesa", ref lst);
-                mensaje = lst[7].Valor.ToString();
+                mensaje = lst[10].Valor.ToString();
             }
             catch (Exception e)
             { throw e; }
-
             return mensaje;
         }
 
@@ -292,6 +290,23 @@ namespace CapaLogicaNegocio
             return int.Parse(lst[1].Valor.ToString());
         }
 
+        public void BorrarMesa(int numero_mesa)
+        {
+            List<clsParametro> lst = new List<clsParametro>();
+            try
+            {
+                lst.Add(new clsParametro("@NumeroMesa", numero_mesa));
+                M.EjecutarSP("BorrarMesa", ref lst);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
+        public DataTable ListarNumerosMesas()
+        {
+            return M.Listado("ListarNumerosMesas", null);
+        }
     } 
 }

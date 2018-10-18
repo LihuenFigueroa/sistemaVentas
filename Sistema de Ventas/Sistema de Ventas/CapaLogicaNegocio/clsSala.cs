@@ -40,10 +40,10 @@ namespace CapaLogicaNegocio
             String Mensaje = "";
             try
             {
-                lst.Add(new clsParametro("@IdSala",this.IdSala));
+                lst.Add(new clsParametro("@IdSala", this.IdSala));
                 lst.Add(new clsParametro("@Nombre", this.Nombre));
                 lst.Add(new clsParametro("@Mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 100));
-                M.EjecutarSP("RegistrarSala",ref lst);
+                M.EjecutarSP("RegistrarSala", ref lst);
                 return Mensaje = lst[2].Valor.ToString();
             }
             catch (Exception e)
@@ -55,17 +55,17 @@ namespace CapaLogicaNegocio
 
         public DataTable ListarSalas()
         {
-            return M.Listado("ListarSalas",null);
+            return M.Listado("ListarSalas", null);
         }
 
         public int ObtenerIdSala(String nombre_sala)
         {
-           // DataTable dt= new DataTable();
+            // DataTable dt= new DataTable();
             List<clsParametro> lst = new List<clsParametro>();
-            lst.Add(new clsParametro("@Nombre",nombre_sala));
-            lst.Add(new clsParametro("@IdSala","", SqlDbType.VarChar, ParameterDirection.Output, 100));
-            M.EjecutarSP("ObtenerIdSala",ref lst);
-            return int.Parse(lst[1].Valor.ToString());        
+            lst.Add(new clsParametro("@Nombre", nombre_sala));
+            lst.Add(new clsParametro("@IdSala", "", SqlDbType.VarChar, ParameterDirection.Output, 100));
+            M.EjecutarSP("ObtenerIdSala", ref lst);
+            return int.Parse(lst[1].Valor.ToString());
         }
 
         public DataTable ObtenerMesas(String nombre_sala)

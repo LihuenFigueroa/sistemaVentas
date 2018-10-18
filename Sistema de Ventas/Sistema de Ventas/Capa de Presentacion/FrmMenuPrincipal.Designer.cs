@@ -40,6 +40,7 @@ namespace Capa_de_Presentacion
             this.label3 = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCrearMesa = new System.Windows.Forms.Button();
             this.btnCrearSala = new System.Windows.Forms.Button();
             this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
@@ -50,8 +51,8 @@ namespace Capa_de_Presentacion
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCrearMesa = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,6 +112,17 @@ namespace Capa_de_Presentacion
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 407);
             this.panel1.TabIndex = 5;
+            // 
+            // btnCrearMesa
+            // 
+            this.btnCrearMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearMesa.Location = new System.Drawing.Point(14, 359);
+            this.btnCrearMesa.Name = "btnCrearMesa";
+            this.btnCrearMesa.Size = new System.Drawing.Size(170, 40);
+            this.btnCrearMesa.TabIndex = 3;
+            this.btnCrearMesa.Text = "&Crear Mesa";
+            this.btnCrearMesa.UseVisualStyleBackColor = true;
+            this.btnCrearMesa.Click += new System.EventHandler(this.btnCrearMesa_Click);
             // 
             // btnCrearSala
             // 
@@ -212,28 +224,29 @@ namespace Capa_de_Presentacion
             this.label1.TabIndex = 0;
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnSave
+            // btnGuardar
             // 
-            this.btnSave.BackColor = System.Drawing.Color.LawnGreen;
-            this.btnSave.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(162, 131);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(50, 24);
-            this.btnSave.TabIndex = 27;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnGuardar.BackColor = System.Drawing.Color.LawnGreen;
+            this.btnGuardar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Location = new System.Drawing.Point(218, 574);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(83, 24);
+            this.btnGuardar.TabIndex = 27;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // btnCrearMesa
+            // btnBorrar
             // 
-            this.btnCrearMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearMesa.Location = new System.Drawing.Point(14, 359);
-            this.btnCrearMesa.Name = "btnCrearMesa";
-            this.btnCrearMesa.Size = new System.Drawing.Size(170, 40);
-            this.btnCrearMesa.TabIndex = 3;
-            this.btnCrearMesa.Text = "&Crear Mesa";
-            this.btnCrearMesa.UseVisualStyleBackColor = true;
-            this.btnCrearMesa.Click += new System.EventHandler(this.btnCrearMesa_Click);
+            this.btnBorrar.BackColor = System.Drawing.Color.Red;
+            this.btnBorrar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrar.Location = new System.Drawing.Point(307, 574);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(83, 24);
+            this.btnBorrar.TabIndex = 28;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = false;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // FrmMenuPrincipal
             // 
@@ -241,7 +254,8 @@ namespace Capa_de_Presentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1184, 661);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnBorrar);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.label4);
@@ -286,7 +300,8 @@ namespace Capa_de_Presentacion
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button btnCrearSala;
         private clsSala S;
-        private Button btnSave;
+        private Button btnGuardar;
         private Button btnCrearMesa;
+        private Button btnBorrar;
     }
 }

@@ -105,7 +105,7 @@ namespace CapaLogicaNegocio
         public int ObtenerNroTicket(int id_venta)
         {
             List<clsParametro> lst = new List<clsParametro>();
-            lst.Add(new clsParametro("@Idventa", id_venta));
+            lst.Add(new clsParametro("@IdVenta", id_venta));
             lst.Add(new clsParametro("@Serie", "", SqlDbType.VarChar, ParameterDirection.Output, 100));
             M.EjecutarSP("ObtenerNroTicket",ref lst);
             return int.Parse(lst[1].Valor.ToString());

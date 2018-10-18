@@ -17,7 +17,7 @@ namespace Capa_de_Presentacion
         int EnviarFecha = 0;
         private static FrmMenuPrincipal _singleton;
         private FrmMenuPrincipal()
-        {            
+        {
             InitializeComponent();
             this.S = new clsSala();
             try
@@ -41,7 +41,7 @@ namespace Capa_de_Presentacion
                     //////////////////////////////////////////////////////////
                     /// LEVANTAR LAS MESAS EXISTENTES DE LA BASE DE DATOS ////
                     //////////////////////////////////////////////////////////
-                    int fil = 0;                  
+                    int fil = 0;
                     DataTable dt2 = new DataTable();
                     clsSala salaActual = new clsSala();
                     dt2 = salaActual.ObtenerMesas(dt.Rows[i][1].ToString());
@@ -102,7 +102,7 @@ namespace Capa_de_Presentacion
         }
 
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
-        {            
+        {
             timer1.Interval = 500;
             timer1.Start();
         }
@@ -111,7 +111,7 @@ namespace Capa_de_Presentacion
         {
             FrmListadoProductos P = new FrmListadoProductos();
             P.Show();
-        }      
+        }
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
@@ -127,12 +127,14 @@ namespace Capa_de_Presentacion
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            switch(EnviarFecha){
+            switch (EnviarFecha)
+            {
                 case 0: CapturarFechaSistema(); break;
             }
         }
 
-        private void CapturarFechaSistema() {
+        private void CapturarFechaSistema()
+        {
             lblFecha.Text = DateTime.Now.ToShortDateString();
             lblHora.Text = DateTime.Now.ToShortTimeString();
         }
@@ -142,7 +144,7 @@ namespace Capa_de_Presentacion
             FrmListadoEmpleados E = new FrmListadoEmpleados();
             E.Show();
         }
-         
+
         private void button37_Click(object sender, EventArgs e)
         {
             FrmCrearSala S = new FrmCrearSala();
@@ -151,17 +153,20 @@ namespace Capa_de_Presentacion
 
         public void AgregarSolapa(string nombre_solapa)
         {
-            
+
             TabPage myTabPage = new TabPage(nombre_solapa);
+            myTabPage.Name = nombre_solapa;
+            myTabPage.Text = nombre_solapa;
             this.tabControl1.TabPages.Add(myTabPage);
             System.Windows.Forms.FlowLayoutPanel flowLayoutPanelx = new System.Windows.Forms.FlowLayoutPanel();
             myTabPage.Controls.Add(flowLayoutPanelx);
-            flowLayoutPanelx.BackColor = System.Drawing.Color.MediumBlue;
-            flowLayoutPanelx.Location = new System.Drawing.Point(0, 0);
-            flowLayoutPanelx.Name = "flowLayoutPanelx";
-            flowLayoutPanelx.Size = new System.Drawing.Size(940, 426);
-            flowLayoutPanelx.TabIndex = 44;
-            
+            System.Windows.Forms.Panel panelx = new System.Windows.Forms.Panel();
+            myTabPage.Controls.Add(panelx);
+            panelx.BackColor = System.Drawing.Color.MediumBlue;
+            panelx.Location = new System.Drawing.Point(0, 0);
+            panelx.Name = "panelx";
+            panelx.Size = new System.Drawing.Size(947, 426);
+            panelx.TabIndex = 0;          
         }
 
         private void btnCrearMesa_Click(object sender, EventArgs e)
@@ -202,7 +207,7 @@ namespace Capa_de_Presentacion
             }
             /////////////////////////////////////                                   
             // LLAMAR A REGISTRAR MESA//
-            String mensaje=nuevaMesa.RegistrarMesa();
+            String mensaje = nuevaMesa.RegistrarMesa();
             /////////////////////////////////////
         }
 
@@ -210,8 +215,8 @@ namespace Capa_de_Presentacion
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                dynamic mboxResult=DevComponents.DotNetBar.MessageBoxEx.Show("¿Está Seguro que Desea Salir.?", "Sistema de Ventas.", MessageBoxButtons.YesNo, MessageBoxIcon.Error);                 
-                    if (mboxResult == DialogResult.No)
+                dynamic mboxResult = DevComponents.DotNetBar.MessageBoxEx.Show("¿Está Seguro que Desea Salir.?", "Sistema de Ventas.", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                if (mboxResult == DialogResult.No)
                 {
                     /* Cancel the Closing event from closing the form. */
                     e.Cancel = true;
@@ -228,21 +233,21 @@ namespace Capa_de_Presentacion
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-             foreach (System.Windows.Forms.Panel pnl in this.tabControl1.SelectedTab.Controls)
+            foreach (System.Windows.Forms.Panel pnl in this.tabControl1.SelectedTab.Controls)
+            {
+                //DENRO DEL PANEL, TENGO QUE ITERAR POR TODOS LOS BOTONES//
+                foreach (System.Windows.Forms.Button btn in pnl.Controls)
                 {
-                    //DENRO DEL PANEL, TENGO QUE ITERAR POR TODOS LOS BOTONES//
-                    foreach (System.Windows.Forms.Button btn in pnl.Controls)
-                    {
                     String numeroMesa = btn.Text;
                     clsMesa mesaActual = new clsMesa();
-                    int posX=btn.Location.X;
-                    int posY=btn.Location.Y;
+                    int posX = btn.Location.X;
+                    int posY = btn.Location.Y;
                     int ancho = btn.Size.Width;
-                    int alto = btn.Size.Height;                                      
-                    mesaActual.ActualizarDimYPos(numeroMesa,posX,posY,ancho,alto);
-                    }
+                    int alto = btn.Size.Height;
+                    mesaActual.ActualizarDimYPos(numeroMesa, posX, posY, ancho, alto);
                 }
-            
+            }
+
         }
 
         private void btnMesa_Click(object sender, EventArgs e)
@@ -251,7 +256,7 @@ namespace Capa_de_Presentacion
             Button mesaClickeada = sender as Button;
             clsMesa mesaActual = new clsMesa();
             int id_mesa = mesaActual.ObtenerIdMesa(int.Parse(mesaClickeada.Text));
-            String libre=mesaActual.ObtenerEstado(id_mesa).ToString();
+            String libre = mesaActual.ObtenerEstado(id_mesa).ToString();
             switch (libre)
             {
                 case "0":
@@ -264,21 +269,49 @@ namespace Capa_de_Presentacion
                         mesaActual.OcuparMesa(id_mesa, cantComensales2);
                         mesaClickeada.BackgroundImage = global::Capa_de_Presentacion.Properties.Resources.mesa_ocupada;
                     }
-                    break;    
+                    break;
                 case "1":
-                    FrmRegistroVentas frv = new FrmRegistroVentas(id_mesa,mesaClickeada);
+                    FrmRegistroVentas frv = new FrmRegistroVentas(id_mesa, mesaClickeada);
                     frv.Show();
 
                     break;
                 default:
                     break;
             }
-           
-           
-            
+
+
+
 
 
         }
 
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            FrmBorrarMesa fom = new FrmBorrarMesa();
+            clsMesa mesaAux = new clsMesa();
+            DialogResult res = fom.ShowDialog(); //Llamamos nuestra ventana hija a manera de DialogResult
+            string mesaABorrar;
+            if (res == DialogResult.OK) //Nos debe regresar un Dialogresult.OK
+            {
+                mesaABorrar = fom.mesaABorrar; //Y listo, nos traermos la informacion 
+                mesaAux.BorrarMesa(int.Parse(mesaABorrar));
+                foreach (TabPage tbp in tabControl1.TabPages)
+                {                    
+                    foreach (System.Windows.Forms.Panel pnl in tbp.Controls)
+                    {
+                        foreach (System.Windows.Forms.Button btn in pnl.Controls)
+                        {
+                            if (btn.Text==mesaABorrar)
+                            {
+                                btn.Click -= new System.EventHandler(this.btnMesa_Click);
+                                panel1.Controls.Remove(btn);
+                                btn.Dispose();
+                                DevComponents.DotNetBar.MessageBoxEx.Show("Se elimino la mesa con exito", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

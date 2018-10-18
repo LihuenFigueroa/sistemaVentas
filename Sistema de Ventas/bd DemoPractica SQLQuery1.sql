@@ -88,6 +88,17 @@ SubTotal Money Not Null
 )
 Go
 
+Create Table HistorialDetalleVenta
+(IdDetalleVenta Int Identity Primary Key,
+IdProducto Int Not Null References Producto,
+IdVenta Int Not Null References Venta,
+Cantidad Int Not Null,
+PrecioUnitario Decimal(6,2) Not Null,
+Igv Money Not Null,
+SubTotal Money Not Null
+)
+Go
+
 
 Create Table Usuario
 (IdUsuario Int Identity Primary Key,
@@ -103,8 +114,7 @@ Go
 Create Proc FiltrarDatosProducto
 @Datos Varchar(50)
 As Begin
-	Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,Precio
-	a,Stock,FechaVencimiento 
+	Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,PrecioVenta,Stock,FechaVencimiento 
 	From Producto where Nombre=@Datos or Marca=@Datos or Nombre+' '+Marca=@Datos
 End
 Go
@@ -182,12 +192,16 @@ Create Proc RegistrarMesa
 @Libre char ,
 @EsperaCuenta char,
 @Combinada char,
+@PosX int,
+@PosY int,
+@Ancho int,
+@Alto int,
 @Mensaje varchar(50) Out
 As Begin
-	If(Exists(Select * From Mesa Where IdMesa=@IdMesa))
+	If(Exists(Select * From Mesa Where NumeroMesa=@NumeroMesa and IdSala=@IdSala))
 		Set @Mensaje='Imposible registrar esta mesa.'
 	Else Begin
-		Insert Mesa Values(@IdSala,@NumeroMesa,@CantComensales,@Libre,@EsperaCuenta,@Combinada)
+		Insert Mesa Values(@IdSala,@NumeroMesa,@CantComensales,@Libre,@EsperaCuenta,@Combinada,@PosX,@PosY,@Ancho,@Alto)
 		Set @Mensaje='Mesa registrada correctamente.'
 	End
 End
@@ -479,5 +493,3 @@ Go
 Insert Producto Values(1,'Gaseosa','Pepsi',5,4.90,5.90,'12/12/2013')
 Go
 ---------------------------------------
-Select *
-FROM Empleado

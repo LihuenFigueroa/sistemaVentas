@@ -28,3 +28,33 @@ C:\Users\Lihuen\Desktop\+58 Sistema\Sistema de Ventas C# y Sql by Start Tec\Sist
 C:\Users\Lihuen\Desktop\+58 Sistema\Sistema de Ventas C# y Sql by Start Tec\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa de Presentacion.csproj.CopyComplete
 C:\Users\Lihuen\Desktop\+58 Sistema\Sistema de Ventas C# y Sql by Start Tec\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa de Presentacion.exe
 C:\Users\Lihuen\Desktop\+58 Sistema\Sistema de Ventas C# y Sql by Start Tec\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa de Presentacion.pdb
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\bin\Release\Capa de Presentacion.exe.config
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\bin\Release\Capa de Presentacion.exe
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\bin\Release\Capa de Presentacion.pdb
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\bin\Release\CapaLogicaNegocio.dll
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\bin\Release\DevComponents.DotNetBar2.dll
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\bin\Release\DevComponents.Instrumentation.dll
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\bin\Release\CapaEnlaceDatos.dll
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\bin\Release\CapaLogicaNegocio.pdb
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\bin\Release\CapaEnlaceDatos.pdb
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa de Presentacion.csprojAssemblyReference.cache
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa_de_Presentacion.FrmCrearSala.resources
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa_de_Presentacion.FrmListadoCargos.resources
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa_de_Presentacion.FrmListadoEmpleados.resources
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa_de_Presentacion.FrmLogin.resources
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa_de_Presentacion.FrmMenuPrincipal.resources
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa_de_Presentacion.FrmOcuparMesa.resources
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa_de_Presentacion.FrmRegistrarCargo.resources
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa_de_Presentacion.FrmRegistrarCategoria.resources
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa_de_Presentacion.FrmListadoCategoria.resources
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa_de_Presentacion.FrmListadoProductos.resources
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa_de_Presentacion.FrmRegistrarEmpleados.resources
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa_de_Presentacion.FrmRegistrarUsuarios.resources
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa_de_Presentacion.FrmRegistroProductos.resources
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa_de_Presentacion.FrmRegistroVentas.resources
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa_de_Presentacion.Properties.Resources.resources
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa de Presentacion.csproj.GenerateResource.cache
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa de Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa de Presentacion.csproj.CopyComplete
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa de Presentacion.exe
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\Capa de Presentacion\obj\Release\Capa de Presentacion.pdb

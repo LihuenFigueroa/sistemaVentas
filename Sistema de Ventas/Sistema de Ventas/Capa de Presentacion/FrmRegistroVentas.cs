@@ -57,10 +57,10 @@ namespace Capa_de_Presentacion
             lblNumeroMesa.Text = Mesa.ObtenerNumeroMesaConId(id_mesa_actual).ToString();
             lblCantidadPersonas.Text = Mesa.ObtenerCantidadPersonas(id_mesa_actual).ToString();
             //////////////////////////////////////////////////////////////////
-            
+
             clsVentas ventaAux = new clsVentas();
             DataTable dt = new DataTable();
-            clsVenta detalleVentaAux=new clsVenta();
+            clsVenta detalleVentaAux = new clsVenta();
             clsProducto productoAux = new clsProducto();
             dt = ventaAux.ObtenerDetallesVentas(id_mesa_actual);
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -75,7 +75,7 @@ namespace Capa_de_Presentacion
                 SubTotal = ((Convert.ToDecimal(dt.Rows[i][4].ToString()) * Convert.ToInt32(dt.Rows[i][3].ToString())) / Porcentaje);
                 detalleVentaAux.Igv = Math.Round(Convert.ToDecimal(SubTotal) * (Convert.ToDecimal(dt.Rows[i][5].ToString()) / (100)), 2);
                 detalleVentaAux.SubTotal = Math.Round(SubTotal, 2);
-                lst.Add(detalleVentaAux);               
+                lst.Add(detalleVentaAux);
             }
             //////////////////////////////////////////////////////////////////
             LlenarGrilla();
@@ -321,9 +321,9 @@ namespace Capa_de_Presentacion
         private void btnCerrarMesa_Click(object sender, EventArgs e)
         {
             
-            int id_venta = lst[0].IdVenta;
+            //int id_venta = lst[0].IdVenta;
             clsVentas ventaAux = new clsVentas();
-            int nroTicket = ventaAux.ObtenerNroTicket(id_venta);
+            /*int nroTicket = ventaAux.ObtenerNroTicket(id_venta);
             ////////////////////////////////////////////////////////
             ////////////// IMPRIMIR TICKET FISCAL //////////////////
             ////////////////////////////////////////////////////////
@@ -368,7 +368,7 @@ namespace Capa_de_Presentacion
 
 
 
-
+    */
 
             ////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////
