@@ -1,0 +1,9 @@
+C:\Users\Lihuen\Desktop\LibPrintTicket\LibPrintTicket\TestLib\bin\Release\TestLib.exe
+C:\Users\Lihuen\Desktop\LibPrintTicket\LibPrintTicket\TestLib\bin\Release\TestLib.pdb
+C:\Users\Lihuen\Desktop\LibPrintTicket\LibPrintTicket\TestLib\bin\Release\LibPrintTicket.dll
+C:\Users\Lihuen\Desktop\LibPrintTicket\LibPrintTicket\TestLib\bin\Release\LibPrintTicket.pdb
+C:\Users\Lihuen\Desktop\LibPrintTicket\LibPrintTicket\TestLib\obj\Release\TestLib.csprojAssemblyReference.cache
+C:\Users\Lihuen\Desktop\LibPrintTicket\LibPrintTicket\TestLib\obj\Release\TestLib.csproj.CoreCompileInputs.cache
+C:\Users\Lihuen\Desktop\LibPrintTicket\LibPrintTicket\TestLib\obj\Release\TestLib.csproj.CopyComplete
+C:\Users\Lihuen\Desktop\LibPrintTicket\LibPrintTicket\TestLib\obj\Release\TestLib.exe
+C:\Users\Lihuen\Desktop\LibPrintTicket\LibPrintTicket\TestLib\obj\Release\TestLib.pdb

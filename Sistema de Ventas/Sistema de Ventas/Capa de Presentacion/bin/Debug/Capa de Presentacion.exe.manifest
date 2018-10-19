@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Capa de Presentacion.exe" size="1952184">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Capa de Presentacion.exe" size="5406648">
       <assemblyIdentity name="Capa de Presentacion" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Uc45eXpgflzVlTamKsoZJYrkDXs=</dsig:DigestValue>
+        <dsig:DigestValue>Bsz1NnpfrbTTvtoVmfaqgO0NOMY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>IRjv/gaGDRYBqoRJaVbwMD3IR1I=</dsig:DigestValue>
+        <dsig:DigestValue>o3fbhfbb6hFTIgPa4tbvQeexBhE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -99,6 +99,18 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
         <dsig:DigestValue>6uWboHOFYohx+5FrDdRhXRZIRe0=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LibPrintTicket.dll" size="11264">
+      <assemblyIdentity name="LibPrintTicket" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>MdefZ2ChRpJDE9Gw6NrlJ3fiqQg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListadoCategoria));
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscarCategoria = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -137,10 +138,12 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtBuscarCategoria);
             this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmListadoCategoria";
-            this.Text = "FrmListadoCategoria";
+            this.Text = "Listado de Categoria";
             this.Load += new System.EventHandler(this.FrmListadoCategoria_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

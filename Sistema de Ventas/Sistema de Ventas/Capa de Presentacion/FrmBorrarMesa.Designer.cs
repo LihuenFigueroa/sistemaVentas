@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBorrarMesa));
             this.mesaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.demoPracticaDataSet = new Capa_de_Presentacion.DemoPracticaDataSet();
             this.mesaTableAdapter = new Capa_de_Presentacion.DemoPracticaDataSetTableAdapters.MesaTableAdapter();
@@ -110,6 +111,7 @@
             this.Controls.Add(this.cbxMesas);
             this.Controls.Add(this.label7);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmBorrarMesa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Borrar Mesa";

@@ -36,7 +36,7 @@ namespace Capa_de_Presentacion
                     panelx.BackColor = System.Drawing.Color.MediumBlue;
                     panelx.Location = new System.Drawing.Point(0, 0);
                     panelx.Name = "panelx";
-                    panelx.Size = new System.Drawing.Size(693, 421);
+                    panelx.Size = new System.Drawing.Size(882, 515);
                     panelx.TabIndex = 0;
                     //////////////////////////////////////////////////////////
                     /// LEVANTAR LAS MESAS EXISTENTES DE LA BASE DE DATOS ////
@@ -269,7 +269,7 @@ namespace Capa_de_Presentacion
                     }
                     break;
                 case "1":
-                    FrmRegistroVentas frv = new FrmRegistroVentas(id_mesa, mesaClickeada);
+                    FrmRegistroVentas frv = new FrmRegistroVentas(id_mesa, mesaClickeada,this.flowLayoutPanel1);
                     frv.Show();
 
                     break;

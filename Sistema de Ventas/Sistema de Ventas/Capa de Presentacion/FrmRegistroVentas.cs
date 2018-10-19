@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using DevComponents.DotNetBar;
 using CapaLogicaNegocio;
+using LibPrintTicket;
 
 namespace Capa_de_Presentacion
 {
@@ -20,13 +21,15 @@ namespace Capa_de_Presentacion
         clsMesa Mesa = new clsMesa();
         public int id_mesa_actual;
         public Button mesa_clickeada_actual;
+        public System.Windows.Forms.FlowLayoutPanel cocina_actual;
         public List<clsVenta> lst = new List<clsVenta>();
 
-        public FrmRegistroVentas(int id_mesa,Button mesa_clikeada)
+        public FrmRegistroVentas(int id_mesa,Button mesa_clikeada,System.Windows.Forms.FlowLayoutPanel flw)
         {
             InitializeComponent();
             id_mesa_actual = id_mesa;
             mesa_clickeada_actual = mesa_clikeada;
+            cocina_actual = flw;
         }
 
         public FrmRegistroVentas()
@@ -53,6 +56,7 @@ namespace Capa_de_Presentacion
             GenerarNumeroComprobante();
             GenerarIdVenta();
             GenerarSeriedeDocumento();
+            this.txtIgv.Text = "0";
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             lblNumeroMesa.Text = Mesa.ObtenerNumeroMesaConId(id_mesa_actual).ToString();
             lblCantidadPersonas.Text = Mesa.ObtenerCantidadPersonas(id_mesa_actual).ToString();
@@ -257,6 +261,7 @@ namespace Capa_de_Presentacion
                                 Convert.ToDecimal(dataGridView1.Rows[i].Cells[3].Value),
                                 SumaIgv, SumaSubTotal
                                 );
+                                MandarACocina();
                                 //DevComponents.DotNetBar.MessageBoxEx.Show("Contiene Datos.");
                             }else{
                                 //DevComponents.DotNetBar.MessageBoxEx.Show("Fila Vacia.");
@@ -311,7 +316,7 @@ namespace Capa_de_Presentacion
         }
 
         private void Limpiar1() {
-            txtIgv.Clear();
+           // txtIgv.Clear();
             dataGridView1.Rows.Clear();
             //Program.IdEmpleadoLogueado = 0;           
             txtIdProducto.Clear();
@@ -331,49 +336,45 @@ namespace Capa_de_Presentacion
             ////////////////////////////////////////////////////////
             ////////////// IMPRIMIR TICKET FISCAL //////////////////
             ////////////////////////////////////////////////////////
-            CrearTicket ticket = new CrearTicket();
-            ticket.AbreCajon();
-            ticket.TextoCentro("REST +58");
-            ticket.TextoIzquierda("EXPEDIDO EN SUCURSAL LA PLATA");
-            ticket.TextoIzquierda("DIREC: 11 47 Y 48");
-            ticket.TextoExtremos("Caja # 1","Ticket #"+nroTicket.ToString());
-            ticket.lineasAsteriscos();
+            Ticket ticket = new Ticket();
+            Image img = Image.FromFile("C:/Users/Lihuen/Desktop/LibPrintTicket/LibPrintTicket/TestLib/Logomas58.jpg");
+            //ticket.HeaderImage = img; //esta propiedad no es obligatoria
 
-            ticket.TextoIzquierda("");
-            ticket.TextoIzquierda("ATENDIO: "+Program.NombreEmpleadoLogueado);
-            ticket.TextoIzquierda("");
-            ticket.TextoIzquierda("FECHA : "+ DateTime.Now.ToShortDateString()+"HORA :"+DateTime.Now.ToShortTimeString());
-            ticket.lineasAsteriscos();
+            ticket.AddHeaderLine("STARBUCKS COFFEE TAMAULIPAS");
+            ticket.AddHeaderLine("EXPEDIDO EN:");
+            ticket.AddHeaderLine("AV. TAMAULIPAS NO. 5 LOC. 101");
+            ticket.AddHeaderLine("MEXICO, DISTRITO FEDERAL");
+            ticket.AddHeaderLine("RFC: CSI-020226-MV4");
 
-            foreach (DataGridViewRow fila in this.dataGridView1.Rows)
-            {
-                ticket.AgregarArticulo(fila.Cells[2].Value.ToString(),int.Parse(fila.Cells[1].Value.ToString()), decimal.Parse(fila.Cells[3].Value.ToString()),decimal.Parse(fila.Cells[4].Value.ToString()));
-            }
+            //El metodo AddSubHeaderLine es lo mismo al de AddHeaderLine con la diferencia
+            //de que al final de cada linea agrega una linea punteada "=========="
+            ticket.AddSubHeaderLine("Caja # 1 - Ticket # 1");
+            ticket.AddSubHeaderLine("Le atendió: Prueba");
+            ticket.AddSubHeaderLine(DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
 
-            ticket.lineasIgual();
-            ticket.AgregarTotales("         SUBTOTAL.......$",1);
-            ticket.AgregarTotales("         IVA............$",1);
-            ticket.AgregarTotales("         TOTAL..........$",2);
-            ticket.TextoIzquierda("");
-            ticket.AgregarTotales("         EFECTIVO.......$",5);
-            ticket.AgregarTotales("         CAMBIO.........$",3);
+            //El metodo AddItem requeire 3 parametros, el primero es cantidad, el segundo es la descripcion
+            //del producto y el tercero es el precio
+            ticket.AddItem("1", "Articulo Prueba", "15.00");
+            ticket.AddItem("2", "Articulo Prueba", "25.00");
 
+            //El metodo AddTotal requiere 2 parametros, la descripcion del total, y el precio
+            ticket.AddTotal("SUBTOTAL", "29.75");
+            ticket.AddTotal("IVA", "5.25");
+            ticket.AddTotal("TOTAL", "35.00");
+            ticket.AddTotal("", ""); //Ponemos un total en blanco que sirve de espacio
+            ticket.AddTotal("RECIBIDO", "50.00");
+            ticket.AddTotal("CAMBIO", "15.00");
+            ticket.AddTotal("", "");// Ponemos un total en blanco que sirve de espacio
+            ticket.AddTotal("USTED AHORRO", "0.00");
 
-            ticket.TextoIzquierda("");
-            ticket.TextoCentro("GRACIAS POR SU COMPRA");
-            ticket.TextoIzquierda("");
-            ticket.TextoCentro("SEGUINOS EN INSTAGRAM @rest.mas58");
-            ticket.CortaTicket();
-            ticket.ImprimirTicket("HASAR SMH/P 441F");
+            //El metodo AddFooterLine funciona igual que la cabecera
+            ticket.AddFooterLine("EL CAFE ES NUESTRA PASION...");
+            ticket.AddFooterLine("VIVE LA EXPERIENCIA EN STARBUCKS");
+            ticket.AddFooterLine("GRACIAS POR TU VISITA");
 
-
-
-
-
-
-
-    
-
+            //Y por ultimo llamamos al metodo PrintTicket para imprimir el ticket, este metodo necesita un
+            //parametro de tipo string que debe de ser el nombre de la impresora.
+            ticket.PrintTicket("Foxit Reader PDF Printer");
             ////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////
@@ -401,6 +402,20 @@ namespace Capa_de_Presentacion
         {
             if (e.KeyChar == (char)13)
                 this.btnAgregar_Click(sender,e);
+        }
+
+        private void MandarACocina()
+        {
+            List<String> lstNombrePedidos = new List<string>();
+            for (int i = 0; i < this.dataGridView1.Rows.Count; i++)
+            {
+                if (this.dataGridView1.Rows[i].Cells[2].ToString()!="")
+                {
+                    lstNombrePedidos.Add(this.dataGridView1.Rows[i].Cells[2].ToString());
+                }
+                
+            }
+            
         }
     }
 }

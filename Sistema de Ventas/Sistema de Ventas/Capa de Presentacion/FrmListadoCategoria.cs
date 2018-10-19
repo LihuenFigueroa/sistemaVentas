@@ -12,7 +12,7 @@ using CapaLogicaNegocio;
 
 namespace Capa_de_Presentacion
 {
-    public partial class FrmListadoCategoria : Form
+    public partial class FrmListadoCategoria : DevComponents.DotNetBar.Metro.MetroForm
     {
         private clsCategoria C = new clsCategoria();
 

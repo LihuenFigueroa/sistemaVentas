@@ -84,6 +84,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\DevComponents.Instrumentation.dll</HintPath>
     </Reference>
+    <Reference Include="LibPrintTicket">
+      <HintPath>..\..\LibPrintTicket\LibPrintTicket\TestLib\bin\Release\LibPrintTicket.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

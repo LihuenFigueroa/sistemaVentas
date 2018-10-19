@@ -131,7 +131,8 @@ namespace CapaLogicaNegocio
             List<clsParametro> lst = new List<clsParametro>();
             String mensaje = "";
             try
-            {                
+            {
+               
                 lst.Add(new clsParametro("@IdSala", this.IdSala));
                 lst.Add(new clsParametro("@NumeroMesa", this.numeroMesa));
                 lst.Add(new clsParametro("@CantComensales", this.cantComensales));

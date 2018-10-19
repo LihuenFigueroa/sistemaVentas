@@ -11,7 +11,6 @@ namespace Capa_de_Presentacion
     //Clase para mandara a imprimir texto plano a la impresora
     public class RawPrinterHelper
     {
-        // Structure and API declarions:
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
         public class DOCINFOA
         {
@@ -43,10 +42,6 @@ namespace Capa_de_Presentacion
         [DllImport("winspool.Drv", EntryPoint = "WritePrinter", SetLastError = true, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
         public static extern bool WritePrinter(IntPtr hPrinter, IntPtr pBytes, Int32 dwCount, out Int32 dwWritten);
 
-        // SendBytesToPrinter()
-        // When the function is given a printer name and an unmanaged array
-        // of bytes, the function sends those bytes to the print queue.
-        // Returns true on success, false on failure.
         public static bool SendBytesToPrinter(string szPrinterName, IntPtr pBytes, Int32 dwCount)
         {
             Int32 dwError = 0, dwWritten = 0;
@@ -54,19 +49,18 @@ namespace Capa_de_Presentacion
             DOCINFOA di = new DOCINFOA();
             bool bSuccess = false; // Assume failure unless you specifically succeed.
 
-            di.pDocName = "Ticket de Venta";//Este es el nombre con el que guarda el archivo en caso de no imprimir a la impresora fisica.
-            di.pDataType = "RAW";//de tipo texto plano
+            di.pDocName = "Ticket de Venta";
+            di.pDataType = "RAW";
 
-            // Open the printer.
+
             if (OpenPrinter(szPrinterName.Normalize(), out hPrinter, IntPtr.Zero))
             {
-                // Start a document.
+
                 if (StartDocPrinter(hPrinter, 1, di))
                 {
-                    // Start a page.
+
                     if (StartPagePrinter(hPrinter))
                     {
-                        // Write your bytes.
                         bSuccess = WritePrinter(hPrinter, pBytes, dwCount, out dwWritten);
                         EndPagePrinter(hPrinter);
                     }
@@ -74,8 +68,7 @@ namespace Capa_de_Presentacion
                 }
                 ClosePrinter(hPrinter);
             }
-            // If you did not succeed, GetLastError may give more information
-            // about why not.
+
             if (bSuccess == false)
             {
                 dwError = Marshal.GetLastWin32Error();

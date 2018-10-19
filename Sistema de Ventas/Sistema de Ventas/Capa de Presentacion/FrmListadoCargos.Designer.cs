@@ -180,9 +180,10 @@
             this.Controls.Add(this.txtBuscarCargo);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmListadoCargos";
-            this.Text = "FrmListadoCargos";
+            this.Text = "Listado de Cargos";
             this.Load += new System.EventHandler(this.FrmListadoCargos_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
