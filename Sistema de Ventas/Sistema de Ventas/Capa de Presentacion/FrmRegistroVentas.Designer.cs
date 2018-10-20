@@ -59,13 +59,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.IdD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtIdVenta = new System.Windows.Forms.TextBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnRegistrarVenta = new System.Windows.Forms.Button();
@@ -77,6 +70,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.btnCerrarMesa = new System.Windows.Forms.Button();
+            this.btnAgregarACuenta = new System.Windows.Forms.Button();
+            this.IdD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Agregada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -379,70 +381,14 @@
             this.Column4,
             this.Column3,
             this.Column5,
-            this.Column6});
+            this.Column6,
+            this.Agregada});
             this.dataGridView1.GridColor = System.Drawing.Color.DimGray;
             this.dataGridView1.Location = new System.Drawing.Point(9, 263);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(625, 211);
             this.dataGridView1.TabIndex = 14;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
-            // 
-            // IdD
-            // 
-            this.IdD.HeaderText = "IdV";
-            this.IdD.Name = "IdD";
-            this.IdD.ReadOnly = true;
-            this.IdD.Visible = false;
-            this.IdD.Width = 30;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "CANT.";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 70;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "D  E  S  C  R  I  P  C  I  Ó  N";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 330;
-            // 
-            // Column4
-            // 
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column4.HeaderText = "P. UNIT.";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 91;
-            // 
-            // Column3
-            // 
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column3.HeaderText = "IMPORTE";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 90;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "IdP";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Visible = false;
-            this.Column5.Width = 30;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "IGV";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Visible = false;
             // 
             // txtIdVenta
             // 
@@ -553,11 +499,87 @@
             this.btnCerrarMesa.UseVisualStyleBackColor = false;
             this.btnCerrarMesa.Click += new System.EventHandler(this.btnCerrarMesa_Click);
             // 
+            // btnAgregarACuenta
+            // 
+            this.btnAgregarACuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarACuenta.Location = new System.Drawing.Point(405, 484);
+            this.btnAgregarACuenta.Name = "btnAgregarACuenta";
+            this.btnAgregarACuenta.Size = new System.Drawing.Size(126, 25);
+            this.btnAgregarACuenta.TabIndex = 24;
+            this.btnAgregarACuenta.Text = "&Agregar a Cuenta";
+            this.btnAgregarACuenta.UseVisualStyleBackColor = true;
+            this.btnAgregarACuenta.Click += new System.EventHandler(this.btnAgregarACuenta_Click);
+            // 
+            // IdD
+            // 
+            this.IdD.HeaderText = "IdV";
+            this.IdD.Name = "IdD";
+            this.IdD.ReadOnly = true;
+            this.IdD.Visible = false;
+            this.IdD.Width = 30;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "CANT.";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 70;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "D  E  S  C  R  I  P  C  I  Ó  N";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 330;
+            // 
+            // Column4
+            // 
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column4.HeaderText = "P. UNIT.";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 91;
+            // 
+            // Column3
+            // 
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column3.HeaderText = "IMPORTE";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 90;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "IdP";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Visible = false;
+            this.Column5.Width = 30;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "IGV";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Visible = false;
+            // 
+            // Agregada
+            // 
+            this.Agregada.HeaderText = "AGREGADA";
+            this.Agregada.Name = "Agregada";
+            this.Agregada.ReadOnly = true;
+            this.Agregada.Visible = false;
+            // 
             // FrmRegistroVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(649, 515);
+            this.Controls.Add(this.btnAgregarACuenta);
             this.Controls.Add(this.btnCerrarMesa);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.txtIdProducto);
@@ -629,6 +651,13 @@
         private System.Windows.Forms.Button btnRegistrarVenta;
         private System.Windows.Forms.Button btnEliminarItem;
         private System.Windows.Forms.TextBox txtIdProducto;
+        private System.Windows.Forms.GroupBox groupBox3;
+        public System.Windows.Forms.Label lblCantidadPersonas;
+        public System.Windows.Forms.Label lblNumeroMesa;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnCerrarMesa;
+        private System.Windows.Forms.Button btnAgregarACuenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdD;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -636,11 +665,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.GroupBox groupBox3;
-        public System.Windows.Forms.Label lblCantidadPersonas;
-        public System.Windows.Forms.Label lblNumeroMesa;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button btnCerrarMesa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Agregada;
     }
 }

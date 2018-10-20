@@ -23,6 +23,7 @@ namespace Capa_de_Presentacion
         public Button mesa_clickeada_actual;
         public System.Windows.Forms.FlowLayoutPanel cocina_actual;
         public List<clsVenta> lst = new List<clsVenta>();
+        //System.Windows.Forms.DataGridView dataGridView2;
 
         public FrmRegistroVentas(int id_mesa,Button mesa_clikeada,System.Windows.Forms.FlowLayoutPanel flw)
         {
@@ -64,11 +65,12 @@ namespace Capa_de_Presentacion
 
             clsVentas ventaAux = new clsVentas();
             DataTable dt = new DataTable();
-            clsVenta detalleVentaAux = new clsVenta();
+            
             clsProducto productoAux = new clsProducto();
             dt = ventaAux.ObtenerDetallesVentas(id_mesa_actual);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
+                clsVenta detalleVentaAux = new clsVenta();
                 Decimal Porcentaje = 0; Decimal SubTotal;
                 detalleVentaAux.IdProducto = Convert.ToInt32(dt.Rows[i][1].ToString());
                 detalleVentaAux.IdVenta = Convert.ToInt32(dt.Rows[i][2].ToString());
@@ -79,10 +81,24 @@ namespace Capa_de_Presentacion
                 SubTotal = ((Convert.ToDecimal(dt.Rows[i][4].ToString()) * Convert.ToInt32(dt.Rows[i][3].ToString())) / Porcentaje);
                 detalleVentaAux.Igv = Math.Round(Convert.ToDecimal(SubTotal) * (Convert.ToDecimal(dt.Rows[i][5].ToString()) / (100)), 2);
                 detalleVentaAux.SubTotal = Math.Round(SubTotal, 2);
+                detalleVentaAux.Agregada = '1';
                 lst.Add(detalleVentaAux);
             }
             //////////////////////////////////////////////////////////////////
             LlenarGrilla();
+            //////////////////////////////////////////////////////////////////
+            if (dt.Rows.Count != 0)
+            {
+                this.btnRegistrarVenta.Hide();
+                this.btnAgregarACuenta.Show();
+            }
+            else
+            {
+                this.btnRegistrarVenta.Show();
+                this.btnAgregarACuenta.Hide();
+
+            }
+            //////////////////////////////////////////////////////////////////
         }
 
         private void GenerarIdVenta() {
@@ -133,7 +149,7 @@ namespace Capa_de_Presentacion
                                     Porcentaje = (Convert.ToDecimal(txtIgv.Text) / 100) + 1;
                                     SubTotal = ((Convert.ToDecimal(txtPVenta.Text) * Convert.ToInt32(txtCantidad.Text)) / Porcentaje);
                                     V.Igv = Math.Round(Convert.ToDecimal(SubTotal) * (Convert.ToDecimal(txtIgv.Text) / (100)), 2);
-                                    V.SubTotal = Math.Round(SubTotal, 2);
+                                    V.SubTotal = Math.Round(SubTotal, 2);                                
                                     lst.Add(V);
                                     LlenarGrilla();
                                     Limpiar();
@@ -174,6 +190,7 @@ namespace Capa_de_Presentacion
                 dataGridView1.Rows[i].Cells[4].Value = lst[i].SubTotal;
                 dataGridView1.Rows[i].Cells[5].Value = lst[i].IdProducto;
                 dataGridView1.Rows[i].Cells[6].Value = lst[i].Igv;
+                dataGridView1.Rows[i].Cells[7].Value = lst[i].Agregada;
                 SumaSubTotal += Convert.ToDecimal(dataGridView1.Rows[i].Cells[4].Value);
                 SumaIgv += Convert.ToDecimal(dataGridView1.Rows[i].Cells[6].Value);
             }
@@ -210,6 +227,10 @@ namespace Capa_de_Presentacion
             if (DevComponents.DotNetBar.MessageBoxEx.Show("¿Está Seguro que Desea Salir.?", "Sistema de Ventas", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes) {
                 this.Close();
             }
+            else
+            {
+                this.Show();
+            }
             FrmMenuPrincipal MP = FrmMenuPrincipal.CrearInstancia();
             MP.BringToFront();
         }
@@ -245,7 +266,7 @@ namespace Capa_de_Presentacion
 
         private void btnRegistrarVenta_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0){
+            if (dataGridView1.Rows.Count > 0){               
                 if (Convert.ToString(dataGridView1.CurrentRow.Cells[2].Value) != ""){
                     GuardarVenta();
                     try{
@@ -253,15 +274,14 @@ namespace Capa_de_Presentacion
                             Decimal SumaIgv = 0; Decimal SumaSubTotal = 0;
                             if (Convert.ToString(dataGridView1.Rows[i].Cells[2].Value) != ""){
                                 SumaIgv += Convert.ToDecimal(dataGridView1.Rows[i].Cells[6].Value);
-                                SumaSubTotal += Convert.ToDecimal(dataGridView1.Rows[i].Cells[4].Value);
+                                SumaSubTotal += Convert.ToDecimal(dataGridView1.Rows[i].Cells[4].Value);                                
                                 GuardarDetalleVenta(
                                 Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value),
                                 Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value),
                                 Convert.ToInt32(dataGridView1.Rows[i].Cells[1].Value),
                                 Convert.ToDecimal(dataGridView1.Rows[i].Cells[3].Value),
-                                SumaIgv, SumaSubTotal
-                                );
-                                MandarACocina();
+                                SumaIgv, SumaSubTotal,'1'
+                                );                                
                                 //DevComponents.DotNetBar.MessageBoxEx.Show("Contiene Datos.");
                             }else{
                                 //DevComponents.DotNetBar.MessageBoxEx.Show("Fila Vacia.");
@@ -302,13 +322,14 @@ namespace Capa_de_Presentacion
         }
 
         private void GuardarDetalleVenta(Int32 objIdProducto, Int32 objIdVenta, Int32 objCantidad, Decimal objPUnitario,
-            Decimal objIgv, Decimal objSubTotal){
+            Decimal objIgv, Decimal objSubTotal,char objAgregada){
                     Detalle.IdProducto = objIdProducto;
                     Detalle.IdVenta = objIdVenta;
                     Detalle.Cantidad = objCantidad;
                     Detalle.PUnitario = objPUnitario;
                     Detalle.Igv = objIgv;
                     Detalle.SubTotal = objSubTotal;
+                    Detalle.Agregada = objAgregada;
                     Detalle.RegistrarDetalleVenta();
                     Limpiar1();
                     GenerarIdVenta();
@@ -317,7 +338,7 @@ namespace Capa_de_Presentacion
 
         private void Limpiar1() {
            // txtIgv.Clear();
-            dataGridView1.Rows.Clear();
+            //dataGridView1.Rows.Clear();            
             //Program.IdEmpleadoLogueado = 0;           
             txtIdProducto.Clear();
             rbnBoleta.Checked = true;
@@ -337,45 +358,54 @@ namespace Capa_de_Presentacion
             ////////////// IMPRIMIR TICKET FISCAL //////////////////
             ////////////////////////////////////////////////////////
             Ticket ticket = new Ticket();
-            Image img = Image.FromFile("C:/Users/Lihuen/Desktop/LibPrintTicket/LibPrintTicket/TestLib/Logomas58.jpg");
+            //Image img = Image.FromFile("C:/Users/Lihuen/Desktop/LibPrintTicket/LibPrintTicket/TestLib/Logomas58.jpg");
             //ticket.HeaderImage = img; //esta propiedad no es obligatoria
 
-            ticket.AddHeaderLine("STARBUCKS COFFEE TAMAULIPAS");
-            ticket.AddHeaderLine("EXPEDIDO EN:");
-            ticket.AddHeaderLine("AV. TAMAULIPAS NO. 5 LOC. 101");
-            ticket.AddHeaderLine("MEXICO, DISTRITO FEDERAL");
-            ticket.AddHeaderLine("RFC: CSI-020226-MV4");
+            ticket.AddHeaderLine("############ REST +58 ############");
+            ticket.AddHeaderLine("EXPEDIDO EN: +58 SUCURSAL LA PLATA");
+            ticket.AddHeaderLine("CALLE 11 E/ 47 Y 48");                      
 
             //El metodo AddSubHeaderLine es lo mismo al de AddHeaderLine con la diferencia
             //de que al final de cada linea agrega una linea punteada "=========="
-            ticket.AddSubHeaderLine("Caja # 1 - Ticket # 1");
-            ticket.AddSubHeaderLine("Le atendió: Prueba");
+            ticket.AddSubHeaderLine("Caja # 1 - Ticket # "+ lblNroCorrelativo.Text);            
             ticket.AddSubHeaderLine(DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
-
+            decimal total = 0;
             //El metodo AddItem requeire 3 parametros, el primero es cantidad, el segundo es la descripcion
             //del producto y el tercero es el precio
-            ticket.AddItem("1", "Articulo Prueba", "15.00");
-            ticket.AddItem("2", "Articulo Prueba", "25.00");
+            for (int i = 0; i < this.dataGridView1.RowCount; i++)
+            {
+                if (this.dataGridView1.Rows[i].Cells[1].Value !=null)
+                {
+                    String cantidad = this.dataGridView1.Rows[i].Cells[1].Value.ToString();
+                    String producto = this.dataGridView1.Rows[i].Cells[2].Value.ToString();
+                    decimal cant = decimal.Parse(this.dataGridView1.Rows[i].Cells[1].Value.ToString());
+                    decimal precio = decimal.Parse(this.dataGridView1.Rows[i].Cells[3].Value.ToString());
+                    decimal importe_d = cant * precio;
+                    String importe = importe_d.ToString();
+                    ticket.AddItem(cantidad,producto,importe);
+                    total += importe_d ;
+                }
+
+            }                       
 
             //El metodo AddTotal requiere 2 parametros, la descripcion del total, y el precio
-            ticket.AddTotal("SUBTOTAL", "29.75");
-            ticket.AddTotal("IVA", "5.25");
-            ticket.AddTotal("TOTAL", "35.00");
-            ticket.AddTotal("", ""); //Ponemos un total en blanco que sirve de espacio
-            ticket.AddTotal("RECIBIDO", "50.00");
-            ticket.AddTotal("CAMBIO", "15.00");
-            ticket.AddTotal("", "");// Ponemos un total en blanco que sirve de espacio
-            ticket.AddTotal("USTED AHORRO", "0.00");
+            ticket.AddTotal("SUBTOTAL", total.ToString());
+            ticket.AddTotal("IVA", "0.00");
+            ticket.AddTotal("TOTAL", total.ToString());
+            ticket.AddTotal("", ""); //Ponemos un total en blanco que sirve de espacio                      
 
+            ticket.AddSubHeaderLine("");
             //El metodo AddFooterLine funciona igual que la cabecera
-            ticket.AddFooterLine("EL CAFE ES NUESTRA PASION...");
-            ticket.AddFooterLine("VIVE LA EXPERIENCIA EN STARBUCKS");
-            ticket.AddFooterLine("GRACIAS POR TU VISITA");
+            ticket.AddFooterLine("       GRACIAS POR SU COMPRA       ");
+            ticket.AddFooterLine("***********************************");
+            ticket.AddFooterLine("       SEGUINOS EN INSTAGRAM       ");
+            ticket.AddFooterLine("            @rest.mas58            ");
 
             //Y por ultimo llamamos al metodo PrintTicket para imprimir el ticket, este metodo necesita un
             //parametro de tipo string que debe de ser el nombre de la impresora.
             ticket.PrintTicket("Foxit Reader PDF Printer");
             ////////////////////////////////////////////////////////
+            dataGridView1.Rows.Clear();
             ////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////
 
@@ -416,6 +446,56 @@ namespace Capa_de_Presentacion
                 
             }
             
+        }
+
+        private void btnAgregarACuenta_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToString(dataGridView1.CurrentRow.Cells[2].Value) != "")
+            {
+                GuardarVenta();
+                try
+                {
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        if (dataGridView1.Rows[i].Cells[7].Value!=null)
+                        {
+                            if (dataGridView1.Rows[i].Cells[7].Value.ToString() == "0")
+                            {// SI NO ESTA AGREGADA//
+                             //LA AGREGO//
+                                Decimal SumaIgv = 0; Decimal SumaSubTotal = 0;
+                                if (Convert.ToString(dataGridView1.Rows[i].Cells[2].Value) != "")
+                                {
+                                    SumaIgv += Convert.ToDecimal(dataGridView1.Rows[i].Cells[6].Value);
+                                    SumaSubTotal += Convert.ToDecimal(dataGridView1.Rows[i].Cells[4].Value);
+                                    GuardarDetalleVenta(
+                                    Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value),
+                                    Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value),
+                                    Convert.ToInt32(dataGridView1.Rows[i].Cells[1].Value),
+                                    Convert.ToDecimal(dataGridView1.Rows[i].Cells[3].Value),
+                                    SumaIgv, SumaSubTotal, '1'
+                                    );
+                                    //DevComponents.DotNetBar.MessageBoxEx.Show("Contiene Datos.");
+                                }
+                                else
+                                {
+                                    //DevComponents.DotNetBar.MessageBoxEx.Show("Fila Vacia.");
+                                }
+
+                            }
+
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message);
+                }
+            }
+            else
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No Existe Ningún Elemento en la Lista.", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -18,8 +18,9 @@ namespace CapaLogicaNegocio
        public Decimal PUnitario { get; set; }
        public Decimal Igv { get; set; }
        public Decimal SubTotal { get; set; }
+       public char Agregada { get; set; }
 
-       public String RegistrarDetalleVenta() {
+        public String RegistrarDetalleVenta() {
            List<clsParametro> lst = new List<clsParametro>();
            String Mensaje = "";
            try{
@@ -29,9 +30,10 @@ namespace CapaLogicaNegocio
                lst.Add(new clsParametro("@PrecioUnitario",PUnitario));
                lst.Add(new clsParametro("@Igv",Igv));
                lst.Add(new clsParametro("@SubTotal",SubTotal));
-               lst.Add(new clsParametro("@Mensaje","",SqlDbType.VarChar,ParameterDirection.Output,100));
+                lst.Add(new clsParametro("@Agregada", Agregada));
+                lst.Add(new clsParametro("@Mensaje","",SqlDbType.VarChar,ParameterDirection.Output,100));
                M.EjecutarSP("RegistrarDetalleVenta", ref lst);
-               Mensaje = lst[6].Valor.ToString();
+               Mensaje = lst[7].Valor.ToString();
            }catch (Exception ex){
                throw ex;
            }

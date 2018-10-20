@@ -23,3 +23,4 @@ C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de V
 C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\CapaEnlaceDatos\obj\Debug\CapaEnlaceDatos.csproj.CoreCompileInputs.cache
 C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\CapaEnlaceDatos\obj\Debug\CapaEnlaceDatos.dll
 C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\CapaEnlaceDatos\obj\Debug\CapaEnlaceDatos.pdb
+C:\Users\Lihuen\Desktop\+58 Sistema\sistemaVentas\Sistema de Ventas\Sistema de Ventas\CapaEnlaceDatos\obj\Debug\CapaEnlaceDatos.csprojAssemblyReference.cache

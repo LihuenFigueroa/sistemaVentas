@@ -15,8 +15,9 @@ namespace Capa_de_Presentacion
        public int IdProducto { get; set; }
        public decimal Igv { get; set; }
        public decimal SubTotal { get; set; }
+       public char Agregada { get; set; }
 
-       public clsVenta() {
+        public clsVenta() {
            Cantidad = 0;
            Descripcion = "";
            PrecioVenta = 0;
@@ -24,9 +25,10 @@ namespace Capa_de_Presentacion
            IdProducto = 0;
            Igv = 0;
            SubTotal = 0;
+           Agregada = '0';
        }
        public clsVenta(int objIdVenta,int objCantidad,string objDescripcion,decimal objPVenta,
-           int objIdProducto, decimal objIgv, decimal objSubTotal){
+           int objIdProducto, decimal objIgv, decimal objSubTotal, char objAgregada){
            IdVenta = objIdVenta;
            Cantidad =objCantidad;
            Descripcion = objDescripcion;
@@ -34,6 +36,7 @@ namespace Capa_de_Presentacion
            IdProducto = objIdProducto;
            Igv = objIgv;
            SubTotal = objSubTotal;
+            Agregada = objAgregada;
        }
 
     }
