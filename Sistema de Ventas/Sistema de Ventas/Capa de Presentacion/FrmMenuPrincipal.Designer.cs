@@ -55,6 +55,7 @@ namespace Capa_de_Presentacion
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.btnReportes = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,6 +105,7 @@ namespace Capa_de_Presentacion
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnReportes);
             this.panel1.Controls.Add(this.btnCrearMesa);
             this.panel1.Controls.Add(this.btnCrearSala);
             this.panel1.Controls.Add(this.btnEmpleados);
@@ -270,6 +272,17 @@ namespace Capa_de_Presentacion
             this.tabControl1.Size = new System.Drawing.Size(890, 537);
             this.tabControl1.TabIndex = 26;
             // 
+            // btnReportes
+            // 
+            this.btnReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.Location = new System.Drawing.Point(14, 207);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Size = new System.Drawing.Size(170, 40);
+            this.btnReportes.TabIndex = 4;
+            this.btnReportes.Text = "&Reportes";
+            this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
+            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,5 +343,6 @@ namespace Capa_de_Presentacion
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label5;
         private TabControl tabControl1;
+        private Button btnReportes;
     }
 }

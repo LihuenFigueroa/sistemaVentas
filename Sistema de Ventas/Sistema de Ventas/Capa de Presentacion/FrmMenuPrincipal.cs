@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaLogicaNegocio;
 using DevComponents.DotNetBar;
+using LibPrintTicket;
 
 namespace Capa_de_Presentacion
 {
@@ -315,6 +316,38 @@ namespace Capa_de_Presentacion
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            Ticket ticket = new Ticket();
+            //Image img = Image.FromFile("C:/Users/Lihuen/Desktop/LibPrintTicket/LibPrintTicket/TestLib/Logomas58.jpg");
+            //ticket.HeaderImage = img; //esta propiedad no es obligatoria
+
+            ticket.AddHeaderLine("############ REST +58 ############");
+            ticket.AddHeaderLine("EXPEDIDO EN: +58 SUCURSAL LA PLATA");
+            ticket.AddHeaderLine("CALLE 11 E/ 47 Y 48");
+
+            //El metodo AddSubHeaderLine es lo mismo al de AddHeaderLine con la diferencia
+            //de que al final de cada linea agrega una linea punteada "=========="
+            
+            /////////////////////////////////////////////
+            //El metodo AddTotal requiere 2 parametros, la descripcion del total, y el precio
+            ticket.AddTotal("TOTAL POSTRES", Program.TOTAL_POSTRES.ToString());
+            
+            ticket.AddTotal("TOTAL DEL DIA", Program.TOTAL_DIA.ToString());
+            ticket.AddTotal("", ""); //Ponemos un total en blanco que sirve de espacio                      
+
+            ticket.AddSubHeaderLine("");
+            //El metodo AddFooterLine funciona igual que la cabecera
+            ticket.AddFooterLine("       GRACIAS POR SU COMPRA       ");
+            ticket.AddFooterLine("***********************************");
+            ticket.AddFooterLine("       SEGUINOS EN INSTAGRAM       ");
+            ticket.AddFooterLine("            @rest.mas58            ");
+
+            //Y por ultimo llamamos al metodo PrintTicket para imprimir el ticket, este metodo necesita un
+            //parametro de tipo string que debe de ser el nombre de la impresora.
+            ticket.PrintTicket("Foxit Reader PDF Printer");
         }
     }
 }

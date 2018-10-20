@@ -129,7 +129,7 @@ namespace Capa_de_Presentacion
         private void btnBusquedaProducto_Click(object sender, EventArgs e)
         {
             FrmListadoProductos P = new FrmListadoProductos();
-            P.Show();
+            P.Show();            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -384,10 +384,29 @@ namespace Capa_de_Presentacion
                     String importe = importe_d.ToString();
                     ticket.AddItem(cantidad,producto,importe);
                     total += importe_d ;
+                    for (int j = 0; j < producto.Length; j++)
+                    {
+                        if (producto[producto.Length - i - 1]=='-')
+                        {
+                            producto = producto.Substring(0,producto.Length-i-2);
+                        }
+                       
+                    }
+                    if (producto== "cupake de vainilla con dulce de leche" || producto== "cupcake de zanahoria" ||
+                        producto== "MINI bienmesabe" || producto == "MINI brownie" || producto == "MINI brownie" ||
+                        producto== "MINI cupcake de zanahoria" || producto== "MINI postre israel" || producto== "MINI tronchatoro" ||
+                        producto== "postre israel" || producto== "torta 3 leches" || producto== "torta de bienmesabe" ||
+                        producto== "torta tronchatoro" ||producto=="quesillo" || producto=="brownie" )
+                    {
+                        Program.TOTAL_POSTRES += importe_d;
+                    }
                 }
 
-            }                       
-
+            }
+            /////JUNTAR DATOS ESTADISTICOS///////////////
+            Program.TOTAL_DIA += total;
+            
+            /////////////////////////////////////////////
             //El metodo AddTotal requiere 2 parametros, la descripcion del total, y el precio
             ticket.AddTotal("SUBTOTAL", total.ToString());
             ticket.AddTotal("IVA", "0.00");
@@ -403,7 +422,7 @@ namespace Capa_de_Presentacion
 
             //Y por ultimo llamamos al metodo PrintTicket para imprimir el ticket, este metodo necesita un
             //parametro de tipo string que debe de ser el nombre de la impresora.
-            ticket.PrintTicket("Foxit Reader PDF Printer");
+            ticket.PrintTicket("POS-80C");
             ////////////////////////////////////////////////////////
             dataGridView1.Rows.Clear();
             ////////////////////////////////////////////////////////

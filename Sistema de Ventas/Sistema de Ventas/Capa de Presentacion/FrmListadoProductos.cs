@@ -39,15 +39,18 @@ namespace Capa_de_Presentacion
                 dataGridView1.Rows.Clear();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
+                    clsCategoria categ = new clsCategoria();
+                    String categoria = categ.ObtenerCategoria(int.Parse(dt.Rows[i][1].ToString()));
                     dataGridView1.Rows.Add(dt.Rows[i][0]);
                     dataGridView1.Rows[i].Cells[0].Value = dt.Rows[i][0].ToString();
                     dataGridView1.Rows[i].Cells[1].Value = dt.Rows[i][1].ToString();
-                    dataGridView1.Rows[i].Cells[2].Value = dt.Rows[i][2].ToString();
-                    dataGridView1.Rows[i].Cells[3].Value = dt.Rows[i][3].ToString();
-                    dataGridView1.Rows[i].Cells[4].Value = dt.Rows[i][4].ToString();
-                    dataGridView1.Rows[i].Cells[5].Value = dt.Rows[i][5].ToString();
-                    dataGridView1.Rows[i].Cells[6].Value = dt.Rows[i][6].ToString();
-                    dataGridView1.Rows[i].Cells[7].Value = Convert.ToDateTime(dt.Rows[i][7].ToString()).ToShortDateString();
+                    dataGridView1.Rows[i].Cells[2].Value = categoria;
+                    dataGridView1.Rows[i].Cells[3].Value = dt.Rows[i][2].ToString();
+                    dataGridView1.Rows[i].Cells[4].Value = dt.Rows[i][3].ToString();
+                    dataGridView1.Rows[i].Cells[5].Value = dt.Rows[i][4].ToString();
+                    dataGridView1.Rows[i].Cells[6].Value = dt.Rows[i][5].ToString();
+                    dataGridView1.Rows[i].Cells[7].Value = dt.Rows[i][6].ToString();
+                    dataGridView1.Rows[i].Cells[8].Value = Convert.ToDateTime(dt.Rows[i][7].ToString()).ToShortDateString();
                 }
             }
             catch (Exception ex)
@@ -133,15 +136,19 @@ namespace Capa_de_Presentacion
                 dataGridView1.Rows.Clear();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
+                    clsCategoria categ = new clsCategoria();
+                    String categoria = categ.ObtenerCategoria(int.Parse(dt.Rows[i][1].ToString()));
+
                     dataGridView1.Rows.Add(dt.Rows[i][0]);
                     dataGridView1.Rows[i].Cells[0].Value = dt.Rows[i][0].ToString();
                     dataGridView1.Rows[i].Cells[1].Value = dt.Rows[i][1].ToString();
-                    dataGridView1.Rows[i].Cells[2].Value = dt.Rows[i][2].ToString();
-                    dataGridView1.Rows[i].Cells[3].Value = dt.Rows[i][3].ToString();
-                    dataGridView1.Rows[i].Cells[4].Value = dt.Rows[i][4].ToString();
-                    dataGridView1.Rows[i].Cells[5].Value = dt.Rows[i][5].ToString();
-                    dataGridView1.Rows[i].Cells[6].Value = dt.Rows[i][6].ToString();
-                    dataGridView1.Rows[i].Cells[7].Value = Convert.ToDateTime(dt.Rows[i][7].ToString()).ToShortDateString();
+                    dataGridView1.Rows[i].Cells[2].Value = categoria;
+                    dataGridView1.Rows[i].Cells[3].Value = dt.Rows[i][2].ToString();
+                    dataGridView1.Rows[i].Cells[4].Value = dt.Rows[i][3].ToString();
+                    dataGridView1.Rows[i].Cells[5].Value = dt.Rows[i][4].ToString();
+                    dataGridView1.Rows[i].Cells[6].Value = dt.Rows[i][5].ToString();
+                    dataGridView1.Rows[i].Cells[7].Value = dt.Rows[i][6].ToString();
+                    dataGridView1.Rows[i].Cells[8].Value = Convert.ToDateTime(dt.Rows[i][7].ToString()).ToShortDateString();
                 }
             }
             catch (Exception ex)
@@ -174,10 +181,10 @@ namespace Capa_de_Presentacion
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
                 Program.IdProducto = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
-                Program.Descripcion = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                Program.Marca = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                Program.PrecioVenta = Convert.ToDecimal(dataGridView1.CurrentRow.Cells[5].Value.ToString());
-                Program.Stock = Convert.ToInt32(dataGridView1.CurrentRow.Cells[6].Value.ToString());
+                Program.Descripcion = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                Program.Marca = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                Program.PrecioVenta = Convert.ToDecimal(dataGridView1.CurrentRow.Cells[6].Value.ToString());
+                Program.Stock = Convert.ToInt32(dataGridView1.CurrentRow.Cells[7].Value.ToString());
                 this.Close();
         }
 

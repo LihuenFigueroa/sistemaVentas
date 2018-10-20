@@ -87,5 +87,15 @@ namespace CapaLogicaNegocio
             }
             return Mensaje;
         }
+
+        public String ObtenerCategoria(int id_c)
+        {
+            List<clsParametro> lst = new List<clsParametro>();
+            lst.Add(new clsParametro("@IdCategoria", id_c));
+            lst.Add(new clsParametro("@Descripcion", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            M.EjecutarSP("ObtenerCategoria", ref lst);
+            return lst[1].Valor.ToString();
+
+        }
     }
 }

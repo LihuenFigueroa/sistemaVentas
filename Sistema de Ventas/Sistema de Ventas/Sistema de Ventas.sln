@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaEnlaceDatos", "CapaEnla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa de Presentacion", "Capa de Presentacion\Capa de Presentacion.csproj", "{F54C7316-903E-4543-840A-9CFB39CF275A}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "+58", "..\..\..\..\+58\+58.vdproj", "{D6C29C0E-5A80-484D-A6AF-844A7B22C751}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,8 @@ Global
 		{F54C7316-903E-4543-840A-9CFB39CF275A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F54C7316-903E-4543-840A-9CFB39CF275A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F54C7316-903E-4543-840A-9CFB39CF275A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6C29C0E-5A80-484D-A6AF-844A7B22C751}.Debug|Any CPU.ActiveCfg = Debug
+		{D6C29C0E-5A80-484D-A6AF-844A7B22C751}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +45,7 @@ Global
 		{8087117A-5BEA-4EB0-925A-407B17AB7983} = {528A2F6A-6578-412A-B401-4E00ADEB31BA}
 		{B7008032-AC5E-4216-9234-54B3E6CA3BDA} = {95AC2A1C-3806-49A2-8D77-8AB294A44E55}
 		{F54C7316-903E-4543-840A-9CFB39CF275A} = {D3403F9F-B16F-4BDE-85FA-73E3BA5440A9}
+		{D6C29C0E-5A80-484D-A6AF-844A7B22C751} = {D3403F9F-B16F-4BDE-85FA-73E3BA5440A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5A5AEA45-D10C-435A-9F49-611284DBD2C0}

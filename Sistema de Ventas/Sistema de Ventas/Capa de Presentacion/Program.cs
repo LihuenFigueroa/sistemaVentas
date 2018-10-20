@@ -29,7 +29,13 @@ namespace Capa_de_Presentacion
         //Variables de Sesion
         public static int IdEmpleadoLogueado;
         public static String NombreEmpleadoLogueado;
- 
+
+        //DATOS ESTADISTICOS
+        public static decimal TOTAL_DIA = 0;
+        public static decimal TOTAL_POSTRES = 0;
+        public static int TOTAL_BEBIDAS = 0;
+        public static int TOTAL_AREPAS = 0;
+
         [STAThread]
         static void Main()
         {
