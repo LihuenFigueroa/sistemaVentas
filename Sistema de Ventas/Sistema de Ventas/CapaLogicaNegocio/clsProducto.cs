@@ -178,5 +178,22 @@ namespace CapaLogicaNegocio
             }
             return nombre;
         }
+        public String ObtenerCategoria(int id_producto)
+        {
+            String nombre = "";
+            List<clsParametro> lst = new List<clsParametro>();
+            try
+            {
+                lst.Add(new clsParametro("@IdProducto", id_producto));
+                lst.Add(new clsParametro("@Categoria", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+                M.EjecutarSP("ObtenerCategoriaP", ref lst);
+                nombre = lst[1].Valor.ToString();
+            }
+            catch (SystemException e)
+            {
+                throw e;
+            }
+            return nombre;
+        }
     }
 }

@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Capa de Presentacion.exe" size="5409720">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Capa de Presentacion.exe" size="5411256">
       <assemblyIdentity name="Capa de Presentacion" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>E0VSuffinvI0bOiLdhsibaEKOf8=</dsig:DigestValue>
+        <dsig:DigestValue>oSU4l+AUngsb3l+f2wgtZj5KMJg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>WvjA4sj6x/HocVqHHE2vXz6cACk=</dsig:DigestValue>
+        <dsig:DigestValue>H3sZNGYA10BgkPMnmTCN2O81Gu8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

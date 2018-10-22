@@ -330,10 +330,18 @@ namespace Capa_de_Presentacion
 
             //El metodo AddSubHeaderLine es lo mismo al de AddHeaderLine con la diferencia
             //de que al final de cada linea agrega una linea punteada "=========="
-            
+
             /////////////////////////////////////////////
             //El metodo AddTotal requiere 2 parametros, la descripcion del total, y el precio
+            ticket.AddTotal("TOTAL BEBIDAS", Program.TOTAL_BEBIDAS.ToString());          
+            ticket.AddTotal("TOTAL AREPAS", Program.TOTAL_AREPAS.ToString());
+            ticket.AddTotal("TOTAL PLAT VENEZOL", Program.TOTAL_PLATOS_VENEZOLANOS.ToString());
+            ticket.AddTotal("TOTAL PLAT DEL DIA", Program.TOTAL_PLATOS_DEL_DIA.ToString());
+            ticket.AddTotal("TOTAL PLAT ARGEN", Program.TOTAL_PLATOS_ARGENTINOS.ToString());
+            ticket.AddTotal("TOTAL EMPANADAS", Program.TOTAL_EMPANADAS_VENEZOLANAS.ToString());
+            ticket.AddTotal("TOTAL CONTORNOS", Program.TOTAL_CONTORNOS.ToString());
             ticket.AddTotal("TOTAL POSTRES", Program.TOTAL_POSTRES.ToString());
+            ticket.AddTotal("TOTAL PROMOS", Program.TOTAL_PROMOS.ToString());
             
             ticket.AddTotal("TOTAL DEL DIA", Program.TOTAL_DIA.ToString());
             ticket.AddTotal("", ""); //Ponemos un total en blanco que sirve de espacio                      
@@ -347,7 +355,7 @@ namespace Capa_de_Presentacion
 
             //Y por ultimo llamamos al metodo PrintTicket para imprimir el ticket, este metodo necesita un
             //parametro de tipo string que debe de ser el nombre de la impresora.
-            ticket.PrintTicket("Foxit Reader PDF Printer");
+            ticket.PrintTicket(Program.COMANDERA);
         }
     }
 }

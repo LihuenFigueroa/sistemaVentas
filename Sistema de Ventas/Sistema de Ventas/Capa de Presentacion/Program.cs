@@ -33,8 +33,20 @@ namespace Capa_de_Presentacion
         //DATOS ESTADISTICOS
         public static decimal TOTAL_DIA = 0;
         public static decimal TOTAL_POSTRES = 0;
-        public static int TOTAL_BEBIDAS = 0;
-        public static int TOTAL_AREPAS = 0;
+        public static decimal TOTAL_BEBIDAS = 0;
+        public static decimal TOTAL_AREPAS = 0;
+        public static decimal TOTAL_CARNES = 0;
+        public static decimal TOTAL_PLATOS_VENEZOLANOS = 0;
+        public static decimal TOTAL_PLATOS_DEL_DIA = 0;
+        public static decimal TOTAL_EMPANADAS_VENEZOLANAS = 0;
+        public static decimal TOTAL_PLATOS_ARGENTINOS = 0;
+        public static decimal TOTAL_CONTORNOS = 0;
+        public static decimal TOTAL_PROMOS = 0;
+        public static decimal TOTAL_VERDURAS = 0;
+
+        // DATOS DE HARDWARE
+        public const String PDF = "Foxit Reader PDF Printer";
+        public const String COMANDERA = "POS-80C";
 
         [STAThread]
         static void Main()

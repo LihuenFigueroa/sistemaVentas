@@ -101,12 +101,12 @@ namespace Capa_de_Presentacion
                 FrmRegistroProductos P = new FrmRegistroProductos();
                 P.txtIdP.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 P.IdC.Text= dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                P.txtProducto.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                P.txtMarca.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                P.txtPCompra.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                P.txtPVenta.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                P.txtStock.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-                P.dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value.ToString());
+                P.txtProducto.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                P.txtMarca.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                P.txtPCompra.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                P.txtPVenta.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+                P.txtStock.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+                P.dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[8].Value.ToString());
                 P.Show();
                 if (dataGridView1.SelectedRows.Count > 0)
                     Program.Evento = 1;
